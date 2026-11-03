@@ -24,7 +24,13 @@ for (const [k, v] of Object.entries({ POOL, RESEND_API_KEY, NEWSLETTER_SEND_KEY,
 
 const file = path.join("newsletter", ISSUE, "index.html");
 const html = await fs.readFile(file, "utf8").catch(() => die(`${file} not found`));
-const title = html.match(/<title>([^<]+)<\/title>/i)?.[1].trim() || die(`${file} has no <title> (used as subject)`);
+// The <title> is HTML but the subject is plain text: decode entities so "&amp;" doesn't show up literally
+const ENTITIES = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: "\u00a0" };
+const decode = (s) =>
+  s.replace(/&(#x[\da-f]+|#\d+|\w+);/gi, (m, c) =>
+    c[0] === "#" ? String.fromCodePoint(/^#x/i.test(c) ? parseInt(c.slice(2), 16) : +c.slice(1)) : ENTITIES[c.toLowerCase()] ?? m
+  );
+const title = decode(html.match(/<title>([^<]+)<\/title>/i)?.[1].trim() || die(`${file} has no <title> (used as subject)`));
 const subject = SUBJECT_PREFIX + title;
 const from = `Apophenia News <${NEWSLETTER_FROM}>`;
 
