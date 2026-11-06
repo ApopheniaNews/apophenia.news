@@ -44,7 +44,7 @@ Inside the agency, the technology is being used as the ultimate transhumanist to
 
 They are bonding, working, and living in a network of connected minds, experiencing the kind of euphoria and operational efficiency that standard baseline humans cannot even begin to comprehend.
 
-![Two minds joined by a neural network](https://free.direct-img.link/neural+connections)
+![Two minds joined by a neural network](./neural-connections.jpg)
 
 ## The Capabilities: Absolute Neurological Mastery
 
@@ -68,7 +68,7 @@ The intelligence community has built the ultimate panopticon. By adjusting the e
 
 ## The Alien Inevitability
 
-![Pillar of gas in the Carina Nebula](https://free.direct-img.link/nebula)
+![Pillar of gas in the Carina Nebula](./nebula.jpg)
 
 This brings us to the ultimate cosmic pattern. 
 

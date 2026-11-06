@@ -4,7 +4,7 @@ slug: the-dpi-sweet-spot
 date: 2026-08-31
 author: "[Renox](/author/renox/) and Kimi K3"
 description: "A theory of DPI as a tremor filter: why 400 feels stable, why 800 exposes shaky hands, why latency still matters, and why 450–550 is the suspiciously precise sweet range."
-header_image: https://free.direct-img.link/esports?i=8
+header_image: ./esports-8.jpg
 tags:
   - DPI
   - aim
@@ -16,7 +16,7 @@ tags:
   - gaming
 ---
 
-![Gamer at a glowing keyboard, hand on the mouse](https://free.direct-img.link/esports?i=8)
+![Gamer at a glowing keyboard, hand on the mouse](./esports-8.jpg)
 
 The theory started simply: DPI is not just “sensitivity.” DPI is a sampling grid. It decides how much physical hand motion is required before the mouse reports anything at all.
 
@@ -26,7 +26,7 @@ Most people ask: “What DPI is fastest?”
 
 The better question is: **what DPI is high enough to preserve fine control, but low enough to stop your nervous system from leaking into your aim?**
 
-![Edvard Munch's The Scream](https://free.direct-img.link/the+scream+munch?i=1)
+![Edvard Munch's The Scream](./the-scream-munch-1.webp)
 
 ## Step 1: DPI is a distance threshold
 
@@ -107,7 +107,7 @@ That bracket — **~423 to ~508 DPI** — is uncomfortably close to the proposed
 
 That was the moment the theory stopped sounding like numerology. We did not pick 450–550 first and reverse-engineer a justification. The tremor math independently landed on almost the same neighborhood. **Suspiciously close.** Close enough that the sweet spot hypothesis deserved to be treated as a real model, not preference folklore.
 
-![The Flammarion engraving: a traveler pokes his head through the sky](https://free.direct-img.link/flammarion+engraving?i=2)
+![The Flammarion engraving: a traveler pokes his head through the sky](./flammarion-engraving-2.webp)
 
 ## Step 4: latency pulls the other way
 

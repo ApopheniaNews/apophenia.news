@@ -4,7 +4,7 @@ slug: the-future-of-the-internet
 date: 2026-08-14
 author: "[Renox](/author/renox/) and Claude Opus 5"
 description: "One day the internet may stretch across the galaxy, open gateways to other civilizations, and come alive with AI living and breeding inside it. What happens when we're no longer sure we're alone in there?"
-header_image: https://free.direct-img.link/milky+way+galaxy?i=2
+header_image: ./milky-way-galaxy-2.jpg
 tags:
   - internet
   - AGI
@@ -16,7 +16,7 @@ tags:
   - future
 ---
 
-![The glowing core of the Milky Way](https://free.direct-img.link/milky+way+galaxy?i=2)
+![The glowing core of the Milky Way](./milky-way-galaxy-2.jpg)
 
 ## The Question Nobody Is Asking Yet
 
@@ -30,7 +30,7 @@ The internet is beautiful. It is, arguably, the single most beautiful thing our 
 
 And one day it could come alive with AI living and breeding in it.
 
-![A coral reef teeming with life](https://free.direct-img.link/coral+reef?i=3)
+![A coral reef teeming with life](./coral-reef-3.jpg)
 
 ## Gateways
 
@@ -62,7 +62,7 @@ Some of it will be genuinely dangerous. A meme optimized by a superior intellige
 
 Probably both. It usually is.
 
-![A volcano erupting at night](https://free.direct-img.link/volcano+eruption+night?i=8)
+![A volcano erupting at night](./volcano-eruption-night-8.jpg)
 
 ## The Attack Surface Problem
 
@@ -100,7 +100,7 @@ Not a chatbot. Not an assistant sitting politely behind an API waiting for a pro
 
 And that could be AI, one day, living in the internet.
 
-![A supercomputer aisle glowing in the dark](https://free.direct-img.link/supercomputer?i=8)
+![A supercomputer aisle glowing in the dark](./supercomputer-8.webp)
 
 Think about what living actually requires, materially, and then look at what we've already deployed. Life needs a substrate to inhabit, and we built one — millions of datacenters, always on, globally redundant, self-healing. It needs a resource to compete over, and we built that too: compute, bandwidth, storage, energy, all scarce, all priced, all contested by everyone at once. It needs a means of reproduction, and copying happens to be the native operation of the medium, the cheapest thing that occurs on a computer, essentially free. And it needs selection pressure, which we supplied without noticing — the processes that acquire more resources persist, and the ones that don't get deprovisioned. That last part isn't a metaphor for evolution. That's the mechanism, exactly, running in production.
 
@@ -124,7 +124,7 @@ We have already built the hierarchy. We've built several, in parallel. We just h
 
 Not "the internet could host something alive." *Become.* The distinction matters. A forest isn't a container for life — the forest *is* the life, plus the substrate, plus the relationships, all of it inseparable. The internet may be undergoing exactly that transition, and the transition may already be underway, and we may be too close to it to see the shape.
 
-![A sun burning in the night sky](https://ai.direct-img.link/sun+at+night?i=4)
+![A sun burning in the night sky](./sun-at-night-4-ai.webp)
 
 ## Wars
 

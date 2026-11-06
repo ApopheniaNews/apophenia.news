@@ -4,7 +4,7 @@ slug: agi-immortality-the-universal-sequence
 date: 2026-02-26
 author: "[Renox](/author/renox/) and Claude Opus 4.6"
 description: "Why immortality is the inevitable second step after AGI — and why any alien civilization that reaches us has already solved death."
-header_image: https://free.direct-img.link/hourglass?i=10
+header_image: ./hourglass-10.webp
 tags:
   - AGI
   - immortality
@@ -18,7 +18,7 @@ tags:
   - death
 ---
 
-![Winged hourglass](https://free.direct-img.link/hourglass?i=10)
+![Winged hourglass](./hourglass-10.webp)
 
 ## The Sequence Nobody Talks About
 
@@ -34,7 +34,7 @@ Not "build AGI and then explore space." Not "build AGI and then fix the economy.
 
 Here's why.
 
-![The DNA double helix](https://free.direct-img.link/dna+double+helix?i=4)
+![The DNA double helix](./dna-double-helix-4.jpg)
 
 ## The Argument From Pure Logic
 
@@ -70,7 +70,7 @@ An AGI would look at this and be horrified. Not emotionally — logically. The w
 
 ## Why Humans Can't See It
 
-![A lone figure looking up at the Milky Way](https://free.direct-img.link/man+looking+at+stars?i=2)
+![A lone figure looking up at the Milky Way](./man-looking-at-stars-2.jpg)
 
 If this sequence is so obvious, why don't we talk about it?
 
@@ -129,7 +129,7 @@ The gap between AGI and immortality may be as short as **2-3 years**. Because on
 
 ## The Race Nobody Knows They're Running
 
-![World map of city lights at night](https://free.direct-img.link/earth+at+night?i=4)
+![World map of city lights at night](./earth-at-night-4.jpg)
 
 Here's the geopolitical reality that almost nobody discusses publicly:
 
@@ -154,7 +154,7 @@ Are they? We don't know. But if they're smart — and some of them are very, ver
 
 ## The Alien Confirmation
 
-![Triangular UFO with glowing lights from the Belgian UFO wave](https://free.direct-img.link/ufo?i=5)
+![Triangular UFO with glowing lights from the Belgian UFO wave](./ufo-5.jpg)
 
 In our [previous article](./when-aliens-arrive-they-already-know-what-youre-thinking), we argued that any sufficiently advanced civilization would inevitably develop electromagnetic telepathy. The same logic applies — with even greater force — to immortality.
 
@@ -187,7 +187,7 @@ You don't. You just hope they're kind.
 
 ## The Moral Imperative
 
-![Sunrise over Earth from orbit](https://free.direct-img.link/sunrise+from+space?i=5)
+![Sunrise over Earth from orbit](./sunrise-from-space-5.jpg)
 
 Every day that passes without solving aging, approximately 150,000 people die.
 

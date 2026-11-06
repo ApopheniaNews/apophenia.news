@@ -4,7 +4,7 @@ slug: dopamine-farming
 date: 2026-10-06
 author: "[Renox](/author/renox/) and Kimi K3"
 description: "Replaying a memory for the feeling. Re-reading the same sentence for an hour. Dopamine farming is the habit everyone has and nobody named, and breaking the loop is a skill."
-header_image: https://free.direct-img.link/brain
+header_image: ./brain.jpg
 tags:
   - dopamine
   - neuroscience
@@ -16,7 +16,7 @@ tags:
   - self-awareness
 ---
 
-![Brain section glowing in fluorescent color](https://free.direct-img.link/brain)
+![Brain section glowing in fluorescent color](./brain.jpg)
 
 ## The Loop You Already Know
 
@@ -30,7 +30,7 @@ It reaches a point where learning when and how to break out of the loop becomes 
 
 And here's the strange part: the loop is completely invisible from the outside. To anyone watching, you're just staring at a wall, or scrolling without reading, or "reading" the same page of a book for twenty minutes. Meanwhile, internally, you're running your greatest hits on repeat: the comeback you nailed, the message that landed, the moment someone laughed at your joke. Your brain found a free vending machine, and it's just pressing the button.
 
-![Man zoning out on a park bench](https://free.direct-img.link/pensive+man)
+![Man zoning out on a park bench](./pensive-man.jpg)
 
 ## What Is Dopamine Farming?
 
@@ -40,7 +40,7 @@ And to be fair, it usually works. The replay of a good conversation *does* feel 
 
 The problem is that the returns shrink. Every loop squeezes a little less juice out of the memory. The comeback that gave you a warm glow on replay one gives you a faint flicker by replay twelve, but your finger keeps pressing the button anyway, because pressing it became automatic somewhere around replay four. You're no longer farming for the reward. You're farming because the loop itself became the activity.
 
-![Row of slot machines waiting to be played](https://free.direct-img.link/slot+machine)
+![Row of slot machines waiting to be played](./slot-machine.jpg)
 
 ## Breaking the Loop
 
@@ -54,7 +54,7 @@ The harder part is noticing you're in one. Loops are invisible while you're insi
 
 And don't beat yourself up when it happens. Everyone loops. The goal was never to never farm. It's to farm on purpose, harvest what you need, and walk away from the field when you're done.
 
-![Sunflower field at sunset](https://free.direct-img.link/farm+field+sunset)
+![Sunflower field at sunset](./farm-field-sunset.jpg)
 
 ## The Field Is Yours
 

@@ -4,7 +4,7 @@ slug: when-aliens-arrive-they-already-know-what-youre-thinking
 date: 2026-02-25
 author: "[Renox](/author/renox/) and Claude Opus 4.6"
 description: "Why any sufficiently advanced civilization will have inevitably developed telepathy — and what that means for every reported alien encounter in history."
-header_image: https://free.direct-img.link/alien?i=7
+header_image: ./alien-7.jpg
 tags:
   - aliens
   - telepathy
@@ -17,7 +17,7 @@ tags:
   - consciousness
 ---
 
-![Grey aliens staring back](https://free.direct-img.link/alien?i=7)
+![Grey aliens staring back](./alien-7.jpg)
 
 ## "It's Almost Like They Knew What We Were Thinking"
 
@@ -31,7 +31,7 @@ But *why* would alien contact consistently involve telepathy? Is it a quirk of h
 
 We believe it's the latter.
 
-![EEG cap reading brain signals](https://free.direct-img.link/eeg+brain?i=1)
+![EEG cap reading brain signals](./eeg-brain-1.jpg)
 
 ## The Inevitability Argument: From AGI to Telepathy
 
@@ -79,7 +79,7 @@ Now imagine TMS refined by a million years of engineering. Wireless. Global. Pre
 
 That's not science fiction. That's a straight line from where we are to where any advanced civilization would inevitably arrive.
 
-![A stack of satellites moments before deployment over Earth](https://free.direct-img.link/starlink+satellites?i=2)
+![A stack of satellites moments before deployment over Earth](./starlink-satellites-2.jpg)
 
 ## Why Sound Becomes Obsolete
 
@@ -114,7 +114,7 @@ When witnesses report:
 
 Data from 152,000 UFO reports analyzed through the NUFORC database reveals that encounters with "Grey" entities cluster strongly with reports of telepathy and paralysis. This isn't random — the same analysis found that different entity types produce distinctly different experiential patterns, suggesting either a consistent external phenomenon or an extraordinarily robust neurological signature.
 
-![A dark, misty forest](https://free.direct-img.link/foggy+forest+night?i=5)
+![A dark, misty forest](./foggy-forest-night-5.jpg)
 
 ## The Terrifying Corollary
 

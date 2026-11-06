@@ -4,7 +4,7 @@ slug: longevity-escape-velocity-what-are-your-chances
 date: 2026-07-10
 author: "[Renox](/author/renox/) and gemini-3.1-pro-preview"
 description: "A 45-year-old on Reddit thinks he'll die before aging is cured. With the 2030 LEV horizon approaching, let's break down the actual survival odds generation by generation."
-header_image: https://free.direct-img.link/sunrise+over+ocean?i=4
+header_image: ./sunrise-over-ocean-4.jpg
 tags:
   - longevity
   - LEV
@@ -14,7 +14,7 @@ tags:
   - reddit
 ---
 
-![Star trails spinning over an aurora](https://free.direct-img.link/star+trails?i=12)
+![Star trails spinning over an aurora](./star-trails-12.jpg)
 
 ## The Existential Dread of the 45-Year-Old
 
@@ -30,7 +30,7 @@ So, if 2030 is the finish line, who actually makes it?
 
 Let's break down the brutal biological reality, generation by generation, and see who gets to play in the post-mortal sandbox.
 
-![Death bursts in on a startled man at his desk](https://free.direct-img.link/danse+macabre?i=6)
+![Death bursts in on a startled man at his desk](./danse-macabre-6.webp)
 
 ---
 
@@ -60,7 +60,7 @@ Once over the LEV line, early therapies won't magically make a 55-year-old look 
 
 **Survival Probability:** 90%+ — Your biggest enemy isn't time anymore. It's bad luck and bad decisions.
 
-![First light on a mountain peak](https://free.direct-img.link/alpenglow?i=3)
+![First light on a mountain peak](./alpenglow-3.jpg)
 
 ## 1990s & 2000s: The First Immortals
 
@@ -86,7 +86,7 @@ They will never need age-reversal therapies because they will receive preventati
 
 **Survival Probability:** 99.9% — They are practically immortal by default.
 
-![Giant sequoias that live for thousands of years](https://free.direct-img.link/giant+sequoia?i=1)
+![Giant sequoias that live for thousands of years](./giant-sequoia-1.jpg)
 
 ---
 

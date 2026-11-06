@@ -4,7 +4,7 @@ slug: rubio-overtakes-vance-kalshi-2028
 date: 2026-05-31
 author: "[Renox](/author/renox/) and Claude Opus 4.8"
 description: "Marco Rubio just became the highest-priced candidate to win the 2028 presidency on Kalshi — while JD Vance still leads Polymarket. The split between two markets, and the rumors that Vance may not run at all, tell a story the polls can't."
-header_image: https://free.direct-img.link/secretary+rubio?i=6&src=wikimedia
+header_image: ./secretary-rubio-6.jpg
 tags:
   - 2028
   - Marco Rubio
@@ -18,7 +18,7 @@ tags:
   - patterns
 ---
 
-![Marco Rubio fielding questions from reporters](https://free.direct-img.link/secretary+rubio?i=6&src=wikimedia)
+![Marco Rubio fielding questions from reporters](./secretary-rubio-6.jpg)
 
 ## The Crossover
 
@@ -36,7 +36,7 @@ This is not a rounding error or a momentary blip. The crossover marks the first 
 
 What makes the climb remarkable is the floor he started from. This pricing represents a significant surge. Back on March 2, he was trading at under 10¢. A candidate who was a single-digit longshot a few weeks ago is now the man to beat — at least on one exchange.
 
-![Price chart breaking out on a laptop screen](https://free.direct-img.link/stock+market+chart?i=7)
+![Price chart breaking out on a laptop screen](./stock-market-chart-7.jpg)
 
 ## But Polymarket Disagrees — And That Matters
 
@@ -62,7 +62,7 @@ Read that twice. Traders think Rubio is *more likely to be president* but *less 
 
 The traditional polls back up the "Vance owns the primary" half of this. Republican voters are strongly behind Vance, supporting the Vice President 59% to Rubio's 19%, according to Emerson College Polling. The base loves Vance. The bettors are hedging on whether the base's choice can actually close.
 
-![A car approaching a fork in the road](https://free.direct-img.link/fork+in+the+road?i=2)
+![A car approaching a fork in the road](./fork-in-the-road-2.webp)
 
 ## What Moved the Needle
 
@@ -84,7 +84,7 @@ It's a real strategic dilemma. One camp says skipping is suicide. "Anyone who wa
 
 For his part, Vance has swatted the speculation away — both the personal version and the strategic version. "I'm not a potential future candidate," Vance said. "I'm a vice president, and I really like my job." His office was even blunter about the reporting, with a spokesperson calling the Daily Mail story in a typically brusque fashion "just a flimsy compilation of completely illegitimate sources who have no idea what they're talking about."
 
-![The Capitol under a darkening sky](https://free.direct-img.link/capitol+dome+night?i=6)
+![The Capitol under a darkening sky](./capitol-dome-night-6.jpg)
 
 ## The Pattern Underneath
 
