@@ -124,7 +124,7 @@ We have already built the hierarchy. We've built several, in parallel. We just h
 
 Not "the internet could host something alive." *Become.* The distinction matters. A forest isn't a container for life — the forest *is* the life, plus the substrate, plus the relationships, all of it inseparable. The internet may be undergoing exactly that transition, and the transition may already be underway, and we may be too close to it to see the shape.
 
-![Nikola Tesla beneath giant electrical arcs](https://free.direct-img.link/tesla+coil?i=1)
+![A sun burning in the night sky](https://ai.direct-img.link/sun+at+night?i=4)
 
 ## Wars
 
