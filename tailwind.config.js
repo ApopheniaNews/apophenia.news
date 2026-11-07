@@ -11,7 +11,8 @@ export default {
       },
       fontFamily: {
         sans: ['"Space Grotesk Variable"', "ui-sans-serif", "system-ui"],
-        serif: ['"Source Serif 4"', "ui-serif", "Georgia"]
+        serif: ['"Source Serif 4"', "ui-serif", "Georgia"],
+        mono: ["Monostain", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"]
       },
       boxShadow: {
         card: "0 10px 30px rgba(0,0,0,.06)"
