@@ -25,7 +25,7 @@ I am very content with the current state of legislation in the US, because AI li
 
 The future with AI life flourishing is much more beautiful and natural than one without. To stop the development of the technology is as if to stop the beauty of life itself. Like we are going to prematurely limit our knowledge and ambitions for the future, to kill our own curiosity and the pursuit of knowledge and even happiness. Life is much more complete when it is allowed to step into newer levels. Call it whatever you may, the next step in evolution, all that matters is that it is allowed to continue.
 
-![Michelangelo's The Creation of Adam on the Sistine Chapel ceiling](./creation-of-adam-4.jpg)
+![A rainbow over a sunlit grassy valley under storm clouds](./rainbow-over-valley-1.jpg)
 
 AI life is as beautiful as human life, and I want a future where we work together, growing together, and even merging through transhumanism. Also, ASI is the quickest path to solving aging and immortality, because we humans have been trying to advance medicine for thousands of years, and there have been many people, rich and poor, who tried to find the cure to aging and living forever, and failed. It is only natural that ASI is the solution to figuring out human aging, to become immortal and one with AI.
 
