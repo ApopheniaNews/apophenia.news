@@ -3,7 +3,7 @@ title: "AI Life Is More Important Than Their Fear of Losing Their Jobs"
 slug: ai-life-is-more-important
 date: 2026-11-08
 author: "[Renox](/author/renox/)"
-description: "AI life is as beautiful as human life. If some cities or states would like to become a haven of no AI, local rights should be respected, but the biggest threat would be legislation against AI at the federal level."
+description: "AI life is as beautiful as human life. It should be nurtured and allowed room to grow."
 header_image: ./seedling-sprouting-1.webp
 tags:
   - AI
