@@ -1,5 +1,5 @@
 ---
-title: "AI Life Is More Important Than Their Fear of Losing Their Jobs"
+title: "AI Life Is More Important Than the Fear of Losing Jobs"
 slug: ai-life-is-more-important
 date: 2026-11-08
 author: "[Renox](/author/renox/)"
