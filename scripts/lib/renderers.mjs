@@ -442,29 +442,47 @@ ${nav}
 ${footer}
 `;
 
+const IMG_TYPES = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", gif: "image/gif", webp: "image/webp", avif: "image/avif" };
+
+// Readers show <dc:creator> as the byline, the header image as the thumbnail, and tags as <category>
 export const renderRss = (articles) => {
-  const lastBuildDate = new Date().toUTCString();
   const items = articles
     .map((a) => {
       const link = `${SITE_URL}/${a.slug}/`;
-      return `<item>
-  <title>${escapeXml(a.title || "")}</title>
-  <link>${escapeXml(link)}</link>
-  <guid>${escapeXml(link)}</guid>
-  <pubDate>${new Date(a.date).toUTCString()}</pubDate>
-  <description>${escapeXml(a.description || "")}</description>
-</item>`;
+      const img = a.header_image && (/^https?:/.test(a.header_image) ? a.header_image : SITE_URL + a.header_image);
+      const type = img && IMG_TYPES[img.split(".").pop().toLowerCase()];
+      const byline = String(a.author || "Apophenia").replace(/\[([^\]]+)\]\([^)]*\)/g, "$1");
+      return [
+        `<item>`,
+        `  <title>${escapeXml(a.title || "")}</title>`,
+        `  <link>${escapeXml(link)}</link>`,
+        `  <guid isPermaLink="true">${escapeXml(link)}</guid>`,
+        `  <pubDate>${new Date(a.date).toUTCString()}</pubDate>`,
+        `  <dc:creator>${escapeXml(byline)}</dc:creator>`,
+        ...(a.tags || []).map((t) => `  <category>${escapeXml(t)}</category>`),
+        `  <description>${escapeXml(a.description || "")}</description>`,
+        ...(img ? [`  <media:content url="${escapeXml(img)}" medium="image"${type ? ` type="${type}"` : ""} />`] : []),
+        `</item>`
+      ].join("\n  ");
     })
-    .join("\n");
+    .join("\n  ");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
 <channel>
   <title>apophenia.news</title>
   <link>${SITE_URL}/</link>
+  <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml" />
   <description>Signals, anomalies, civilization trajectories, and deep pattern analysis.</description>
   <language>en-us</language>
-  <lastBuildDate>${lastBuildDate}</lastBuildDate>
+  <image>
+    <url>${SITE_URL}/logo.png</url>
+    <title>apophenia.news</title>
+    <link>${SITE_URL}/</link>
+    <width>120</width>
+    <height>120</height>
+  </image>
+  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
   ${items}
 </channel>
 </rss>
