@@ -22,11 +22,21 @@ const getUnlistedSlugs = async () => {
   }
 };
 
+const git = (...args) => execFileSync("git", args, { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim();
+
+// Cloudflare's build clones only the latest commit, which would date every article to the last push. So fetch the
+// rest of the history first: commits and trees only, no file contents, which keeps it fast.
+try {
+  if (git("rev-parse", "--is-shallow-repository") === "true") git("fetch", "--unshallow", "--filter=blob:none", "--quiet");
+} catch {
+  console.warn("Could not fetch the git history: article modified dates will all be the latest commit.");
+}
+
 // When the article's folder was last committed, so editing an article (text or images) updates its modified date on
-// its own. CI checks out full history for this. "" for an uncommitted article, which then counts as unmodified.
+// its own. "" for an uncommitted article, which then counts as unmodified.
 const lastCommit = (dir) => {
   try {
-    const d = execFileSync("git", ["log", "-1", "--format=%aI", "--", dir], { encoding: "utf8" }).trim();
+    const d = git("log", "-1", "--format=%aI", "--", dir);
     return d && new Date(d).toISOString();
   } catch {
     return "";
