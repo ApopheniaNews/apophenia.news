@@ -1,5 +1,5 @@
 export const fmtDate = (date) =>
-  new Date(date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  new Date(date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
 export const toISODate = (d) => new Date(d).toISOString().split("T")[0];
 

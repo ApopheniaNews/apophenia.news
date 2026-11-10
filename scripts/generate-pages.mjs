@@ -5,9 +5,9 @@ import fg from "fast-glob";
 import matter from "gray-matter";
 import { marked } from "marked";
 import markedKatex from "marked-katex-extension";
-import { ARTICLES_GLOB, AUTHOR_PAGES, ROOT, SRC, UNLISTED_PATH } from "./lib/constants.mjs";
+import { ARTICLES_GLOB, AUTHOR_PAGES, ISSUES_GLOB, ROOT, SRC, UNLISTED_PATH } from "./lib/constants.mjs";
 import { fixInternalLinks } from "./lib/utils.mjs";
-import { renderArticle, renderHome, renderWritePage, renderNewsletterPage, renderUnsubscribePage, renderAuthorPage, renderNotFound } from "./lib/renderers.mjs";
+import { renderArticle, renderHome, renderWritePage, renderNewsletterPage, renderIssue, renderUnsubscribePage, renderAuthorPage, renderNotFound } from "./lib/renderers.mjs";
 import { ensureCleanGenerated, writeDiscoveryFiles, writePage } from "./lib/io.mjs";
 
 marked.use(markedKatex({ throwOnError: false, nonStandard: true }));
@@ -43,6 +43,18 @@ const lastCommit = (dir) => {
   }
 };
 
+// Each newsletter/issue-*/index.html is the email scripts/send-newsletter.mjs sends. It is also served as a web page
+// at /newsletter/<dir>/ (see renderIssue) and listed on /newsletter/ newest first: title from its <title>, date from
+// its folder name.
+const getIssues = async () =>
+  Promise.all(
+    (await fg(ISSUES_GLOB, { cwd: ROOT })).sort().reverse().map(async (file) => {
+      const html = await fs.readFile(path.join(ROOT, file), "utf8");
+      const dir = file.split("/")[1];
+      return { dir, html, title: html.match(/<title>([^<]*)<\/title>/i)?.[1].trim() || dir, date: dir.slice(6).replaceAll(".", "-") };
+    })
+  );
+
 const copyArticleAssets = async (file, slug) => {
   const dir = path.dirname(file);
   const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -59,9 +71,10 @@ const copyArticleAssets = async (file, slug) => {
 };
 
 const run = async () => {
-  const [files, unlisted] = await Promise.all([
+  const [files, unlisted, issues] = await Promise.all([
     fg(ARTICLES_GLOB, { cwd: ROOT, absolute: true }),
-    getUnlistedSlugs()
+    getUnlistedSlugs(),
+    getIssues()
   ]);
 
   const articles = [];
@@ -90,7 +103,8 @@ const run = async () => {
 
   await writePage([SRC, "index.html"], renderHome(listedArticles));
   await writePage([SRC, "write", "index.html"], renderWritePage());
-  await writePage([SRC, "newsletter", "index.html"], renderNewsletterPage());
+  await writePage([SRC, "newsletter", "index.html"], renderNewsletterPage(issues));
+  for (const issue of issues) await writePage([SRC, "newsletter", issue.dir, "index.html"], renderIssue(issue));
   await writePage([SRC, "newsletter", "unsubscribe.html"], renderUnsubscribePage());
   await writePage([SRC, "404.html"], renderNotFound());
 
@@ -103,9 +117,9 @@ const run = async () => {
     await copyArticleAssets(article.sourceFile, article.slug);
   }
 
-  await writeDiscoveryFiles(listedArticles, AUTHOR_PAGES);
+  await writeDiscoveryFiles(listedArticles, AUTHOR_PAGES, issues);
 
-  console.log(`Generated ${articles.length} article pages (${listedArticles.length} listed) + home + write + newsletter + unsubscribe + author pages + 404 + rss/sitemap/robots.`);
+  console.log(`Generated ${articles.length} article pages (${listedArticles.length} listed) + home + write + newsletter (${issues.length} issues) + unsubscribe + author pages + 404 + rss/sitemap/robots.`);
 };
 
 run().catch((err) => {

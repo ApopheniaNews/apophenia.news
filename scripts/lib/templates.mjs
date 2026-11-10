@@ -72,6 +72,10 @@ export const merch = `
 </section>
 `;
 
+// Favicon and analytics: every page gets these, including the web versions of newsletter issues
+export const siteHead = `<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script data-goatcounter="https://apophenia.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>`;
+
 export const shellHead = ({ title, desc, image, url, type = "website", noindex = false, published, modified, jsonLd }) => `<!doctype html>
 <html lang="en">
 <head>
@@ -90,9 +94,8 @@ export const shellHead = ({ title, desc, image, url, type = "website", noindex =
   ${modified ? `<meta property="article:modified_time" content="${modified}" />` : ""}
   ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, "\\u003c")}</script>` : ""}
   ${url ? `<link rel="canonical" href="${url}" />` : ""}
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  ${siteHead}
   <link rel="alternate" type="application/rss+xml" title="apophenia.news RSS" href="${SITE_URL}/rss.xml" />
-  <script data-goatcounter="https://apophenia.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script type="module" src="/main.js"></script>
 </head>
 <body>

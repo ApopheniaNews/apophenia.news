@@ -1,5 +1,5 @@
 import { SITE_URL, TURNSTILE_SITE_KEY } from "./constants.mjs";
-import { footer, merch, nav, shellHead } from "./templates.mjs";
+import { footer, merch, nav, shellHead, siteHead } from "./templates.mjs";
 import { escapeHtml, escapeXml, fmtDate, renderAuthorInline, toISO, toISODate } from "./utils.mjs";
 
 // Structured data (JSON-LD) so Google reads the headline, image, dates and authors directly instead of guessing
@@ -160,7 +160,7 @@ ${nav}
 ${footer}
 `;
 
-export const renderNewsletterPage = () => `
+export const renderNewsletterPage = (issues = []) => `
 ${shellHead({
   title: "Newsletter — apophenia.news",
   desc: "Subscribe to the apophenia.news newsletter. We won't spam you with everything — only the good stuff.",
@@ -250,6 +250,25 @@ ${nav}
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </article>
 
+  <section class="mt-10 card p-6 sm:p-8">
+    <p class="tag mb-3"><i data-lucide="history" class="h-3.5 w-3.5"></i>History</p>
+    <h2 class="text-2xl sm:text-3xl font-bold leading-tight">Past issues</h2>
+    ${
+      issues.length
+        ? `<ol class="mt-4 divide-y divide-zinc-200">
+      ${issues
+        .map(
+          (i) => `<li class="flex items-baseline justify-between gap-4 py-3">
+        <a href="/newsletter/${i.dir}/" class="font-medium">${i.title}</a>
+        <time datetime="${i.date}" class="shrink-0 text-xs uppercase tracking-wide text-zinc-500">${fmtDate(i.date)}</time>
+      </li>`
+        )
+        .join("\n      ")}
+    </ol>`
+        : `<p class="mt-3 text-zinc-700">No issues yet.</p>`
+    }
+  </section>
+
   ${merch}
 
   <div class="mt-8">
@@ -260,6 +279,15 @@ ${nav}
 </main>
 ${footer}
 `;
+
+// The web version of a newsletter issue: the email as sent, minus its <!--email-->...<!--/email--> parts and
+// {{{MERGE}}} fields. Links drop ?utm_source=newsletter so archive readers aren't counted as email clicks.
+export const renderIssue = ({ dir, html }) =>
+  html
+    .replace(/<!--email-->[\s\S]*?<!--\/email-->/g, "")
+    .replace(/\{\{\{\w+\}\}\}/g, "")
+    .replace(/\?utm_source=newsletter(?=")/g, "")
+    .replace("</head>", `  <link rel="canonical" href="${SITE_URL}/newsletter/${dir}/" />\n  ${siteHead}\n</head>`);
 
 export const renderUnsubscribePage = () => `
 ${shellHead({
@@ -443,13 +471,14 @@ export const renderRss = (articles) => {
 `;
 };
 
-export const renderSitemap = (articles, authors = []) => {
+export const renderSitemap = (articles, authors = [], issues = []) => {
   const now = toISODate(new Date());
   const urls = [
     { loc: `${SITE_URL}/`, lastmod: now },
     { loc: `${SITE_URL}/newsletter/`, lastmod: now },
     { loc: `${SITE_URL}/write/`, lastmod: now },
     ...authors.map((a) => ({ loc: `${SITE_URL}/author/${a.slug}/`, lastmod: now })),
+    ...issues.map((i) => ({ loc: `${SITE_URL}/newsletter/${i.dir}/`, lastmod: i.date })),
     ...articles.map((a) => ({ loc: `${SITE_URL}/${a.slug}/`, lastmod: toISODate(articleDates(a).modified) }))
   ];
 

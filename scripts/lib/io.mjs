@@ -20,11 +20,11 @@ export const writePage = async (parts, html) => {
   await fs.writeFile(filePath, html, "utf8");
 };
 
-export const writeDiscoveryFiles = async (articles, authors) => {
+export const writeDiscoveryFiles = async (articles, authors, issues) => {
   await fs.mkdir(PUBLIC, { recursive: true });
   await Promise.all([
     fs.writeFile(path.join(PUBLIC, "rss.xml"), renderRss(articles), "utf8"),
-    fs.writeFile(path.join(PUBLIC, "sitemap.xml"), renderSitemap(articles, authors), "utf8"),
+    fs.writeFile(path.join(PUBLIC, "sitemap.xml"), renderSitemap(articles, authors, issues), "utf8"),
     fs.writeFile(path.join(PUBLIC, "robots.txt"), renderRobots(), "utf8")
   ]);
 };
