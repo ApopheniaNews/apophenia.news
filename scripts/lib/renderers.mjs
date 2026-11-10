@@ -52,9 +52,9 @@ ${shellHead({
 })}
 ${nav}
 <main class="shell py-10">
-  <section class="card p-6 sm:p-10 bg-gradient-to-b from-white to-indigo-50/50">
+  <section class="card p-6 sm:p-10 bg-linear-to-b from-white to-indigo-50/50">
     <p class="tag mb-3"><i data-lucide="sparkles" class="h-3.5 w-3.5"></i>Pattern Intelligence Journalism</p>
-    <h1 class="text-4xl sm:text-5xl font-bold leading-tight">The news outlet for pattern seekers</h1>
+    <h1 class="text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">The news outlet for pattern seekers</h1>
     <p class="mt-4 text-zinc-700 max-w-2xl">High-agency analysis at the intersection of AGI, consciousness, geopolitics, and first-contact logic.</p>
   </section>
 
@@ -111,11 +111,11 @@ ${nav}
     <div class="p-6 sm:p-10">
       <div class="flex items-center justify-between gap-4">
         <p class="text-xs uppercase tracking-wide text-zinc-500">${fmtDate(article.date)} • ${renderAuthorInline(article.author)}</p>
-        <button type="button" data-copy-article aria-label="Copy article" class="inline-flex shrink-0 items-center gap-2 rounded-lg border border-zinc-200 bg-white px-2 py-2 text-sm font-medium text-zinc-800 shadow-sm transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 sm:px-3">
+        <button type="button" data-copy-article aria-label="Copy article" class="inline-flex shrink-0 items-center gap-2 rounded-lg border border-zinc-200 bg-white px-2 py-2 text-sm font-medium text-zinc-800 shadow-xs transition hover:bg-zinc-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-400 sm:px-3">
           <i data-lucide="copy" class="h-4 w-4"></i><span aria-live="polite" class="hidden sm:inline">Copy article</span>
         </button>
       </div>
-      <h1 class="mt-2 text-4xl sm:text-5xl font-bold leading-tight">${escapeHtml(article.title)}</h1>
+      <h1 class="mt-2 text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">${escapeHtml(article.title)}</h1>
       <p class="mt-4 text-zinc-700 max-w-3xl">${escapeHtml(article.description || "")}</p>
       <div class="mt-5 flex flex-wrap gap-2">
         ${(article.tags || []).map((t) => `<span class="tag">#${escapeHtml(t)}</span>`).join("")}
@@ -147,10 +147,10 @@ ${shellHead({
 })}
 ${nav}
 <main class="shell py-10">
-  <section class="card p-6 sm:p-10 text-center bg-gradient-to-b from-white to-indigo-50/50">
+  <section class="card p-6 sm:p-10 text-center bg-linear-to-b from-white to-indigo-50/50">
     <img src="https://vibegif.direct-img.link/detective/clue.webp" alt="Detective searching for clues with a magnifying glass" width="256" height="256" class="mx-auto h-48 w-48" />
     <p class="tag mt-6 mb-3"><i data-lucide="search" class="h-3.5 w-3.5"></i>404</p>
-    <h1 class="text-4xl sm:text-5xl font-bold leading-tight">No pattern here</h1>
+    <h1 class="text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">No pattern here</h1>
     <p class="mt-4 text-zinc-700 max-w-xl mx-auto">This page doesn't exist or has moved. Even pattern seekers hit a dead end sometimes.</p>
     <a href="/" class="mt-6 inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700">
       <i data-lucide="arrow-left" class="h-4 w-4"></i> Back to Home
@@ -170,9 +170,9 @@ ${shellHead({
 })}
 ${nav}
 <main class="shell py-10">
-  <article class="card p-6 sm:p-10 bg-gradient-to-b from-white to-indigo-50/50">
+  <article class="card p-6 sm:p-10 bg-linear-to-b from-white to-indigo-50/50">
     <p class="tag mb-3"><i data-lucide="mail" class="h-3.5 w-3.5"></i>Newsletter</p>
-    <h1 class="text-4xl sm:text-5xl font-bold leading-tight">Get the signal, skip the noise</h1>
+    <h1 class="text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">Get the signal, skip the noise</h1>
     <p class="mt-4 text-zinc-700 max-w-2xl">
       The sharpest pattern analysis, delivered straight to your inbox. <strong>We won't spam you with everything — only the good stuff.</strong> No filler, no daily blasts, just the pieces worth your attention.
     </p>
@@ -221,7 +221,7 @@ ${nav}
           placeholder="you@example.com"
           x-model="email"
           :disabled="loading"
-          class="flex-1 rounded-xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          class="flex-1 rounded-xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder:text-zinc-400 focus:outline-hidden focus:ring-2 focus:ring-indigo-400"
           aria-label="Email address"
         />
         <button
@@ -237,11 +237,11 @@ ${nav}
       <div class="cf-turnstile mt-3" data-sitekey="${TURNSTILE_SITE_KEY}" data-appearance="interaction-only" data-size="flexible"></div>
 
       <p x-show="ok" x-cloak class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-emerald-700">
-        <i data-lucide="check-circle" class="h-4 w-4"></i>
+        <i data-lucide="circle-check" class="h-4 w-4"></i>
         You're in. Welcome to the pattern.
       </p>
       <p x-show="error" x-cloak class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-rose-700">
-        <i data-lucide="alert-circle" class="h-4 w-4"></i>
+        <i data-lucide="circle-alert" class="h-4 w-4"></i>
         <span x-text="error"></span>
       </p>
 
@@ -252,7 +252,7 @@ ${nav}
 
   <section class="mt-10 card p-6 sm:p-8">
     <p class="tag mb-3"><i data-lucide="history" class="h-3.5 w-3.5"></i>History</p>
-    <h2 class="text-2xl sm:text-3xl font-bold leading-tight">Past issues</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold leading-tight sm:leading-9">Past issues</h2>
     ${
       issues.length
         ? `<ol class="mt-4 divide-y divide-zinc-200">
@@ -356,7 +356,7 @@ ${nav}
       <form class="mt-6" novalidate @submit.prevent="submit">
         <label for="unsubscribe-email" class="block text-sm font-medium">Email address</label>
         <input id="unsubscribe-email" name="email" type="email" autocomplete="email" required x-model="email" :disabled="loading"
-          placeholder="you@example.com" class="mt-2 w-full rounded-xl border border-zinc-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+          placeholder="you@example.com" class="mt-2 w-full rounded-xl border border-zinc-300 px-4 py-3 focus:outline-hidden focus:ring-2 focus:ring-indigo-400" />
         <button type="submit" :disabled="loading"
           class="mt-3 w-full rounded-xl bg-accent px-4 py-3 font-medium text-white transition hover:bg-indigo-700 disabled:opacity-60"
           x-text="loading ? 'Unsubscribing…' : 'Unsubscribe'">Unsubscribe</button>
@@ -381,7 +381,7 @@ ${nav}
 <main class="shell py-10">
   <article class="card p-6 sm:p-10">
     <p class="tag mb-3"><i data-lucide="pen-line" class="h-3.5 w-3.5"></i>Contributor Program</p>
-    <h1 class="text-4xl sm:text-5xl font-bold leading-tight">Become a writer for apophenia.news</h1>
+    <h1 class="text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">Become a writer for apophenia.news</h1>
     <p class="mt-4 text-zinc-700 max-w-3xl">
       Have a strong story, analysis, or investigation? Send it to us.
     </p>
@@ -425,9 +425,9 @@ ${nav}
 <main class="shell py-10">
   <article class="card p-6 sm:p-10">
     <p class="tag mb-3"><i data-lucide="user-round" class="h-3.5 w-3.5"></i>Author</p>
-    <h1 class="text-4xl sm:text-5xl font-bold leading-tight">${escapeHtml(author.name)}</h1>
+    <h1 class="text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">${escapeHtml(author.name)}</h1>
 
-    <div class="mt-8 grid md:grid-cols-[240px,1fr] gap-8 items-start">
+    <div class="mt-8 grid md:grid-cols-[240px_1fr] gap-8 items-start">
       <div class="h-64 w-full rounded-2xl border border-dashed border-zinc-300 bg-zinc-50/70 flex items-center justify-center text-sm text-zinc-500">
         Photo coming soon
       </div>

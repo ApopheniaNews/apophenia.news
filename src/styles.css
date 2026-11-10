@@ -2,7 +2,22 @@
 @import "@fontsource/source-serif-4/400.css";
 @import "@fontsource/source-serif-4/600.css";
 @import "@fontsource/source-serif-4/700.css";
-@import "katex/dist/katex.min.css";
+@import "tailwindcss" source(none);
+/* Layered so the components below still win over KaTeX, as they did before cascade layers */
+@import "katex/dist/katex.min.css" layer(base);
+@plugin "@tailwindcss/typography";
+@source "./**/*.{html,js}";
+
+@theme {
+  --color-paper: #fcfcfa;
+  --color-ink: #15151b;
+  --color-accent: #4f46e5;
+  --color-soft: #eef2ff;
+  --font-sans: "Space Grotesk Variable", ui-sans-serif, system-ui;
+  --font-serif: "Source Serif 4", ui-serif, Georgia;
+  --font-mono: Monostain, ui-monospace, SFMono-Regular, Menlo, monospace;
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
 
 /* Monostain, our own monospace font (github.com/PlanetRenox/MonostainFont), for code and pre */
 @font-face {
@@ -18,11 +33,18 @@
   font-display: swap;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
+  /* Tailwind 3 defaults that Tailwind 4 changed */
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+  input::placeholder, textarea::placeholder {
+    color: var(--color-gray-400);
+  }
+  button:not(:disabled), [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
   [x-cloak] {
     display: none !important;
   }
@@ -61,7 +83,7 @@
   }
 
   .article-prose {
-    @apply prose prose-zinc max-w-none prose-headings:font-serif prose-headings:text-zinc-900 prose-p:text-zinc-800 prose-li:text-zinc-800 prose-strong:text-zinc-900 prose-a:text-indigo-600 hover:prose-a:text-indigo-700 prose-img:rounded-xl prose-img:shadow-md;
+    @apply prose prose-zinc max-w-none prose-headings:font-serif prose-headings:text-zinc-900 prose-p:text-zinc-800 prose-li:text-zinc-800 prose-strong:text-zinc-900 prose-a:text-indigo-600 prose-a:hover:text-indigo-700 prose-img:rounded-xl prose-img:shadow-md;
   }
 
   .article-prose .katex-display {

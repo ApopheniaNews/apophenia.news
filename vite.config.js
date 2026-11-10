@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
 import fs from "node:fs";
 import fg from "fast-glob";
 
@@ -14,11 +15,11 @@ const articleAssets = {
 export default defineConfig({
   root: "src",
   publicDir: "../public",
-  plugins: [articleAssets],
+  plugins: [tailwindcss(), articleAssets],
   build: {
     outDir: "../dist",
     emptyOutDir: true,
-    rollupOptions: {
+    rolldownOptions: {
       input: fg.sync("src/**/*.html", { absolute: true })
     }
   }

@@ -43,11 +43,11 @@ const merchShots = [
 ];
 
 export const merch = `
-<section class="mt-10 card overflow-hidden bg-gradient-to-b from-white to-indigo-50/60">
-  <div class="p-6 sm:p-8 grid sm:grid-cols-[1fr,340px] gap-8 items-center">
+<section class="mt-10 card overflow-hidden bg-linear-to-b from-white to-indigo-50/60">
+  <div class="p-6 sm:p-8 grid sm:grid-cols-[1fr_340px] gap-8 items-center">
     <div>
       <p class="tag mb-3"><i data-lucide="shopping-bag" class="h-3.5 w-3.5"></i>Merch</p>
-      <h2 class="text-2xl sm:text-3xl font-bold leading-tight">Wear the pattern</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold leading-tight sm:leading-9">Wear the pattern</h2>
       <p class="mt-3 text-zinc-700 max-w-md">
         The <strong>Pattern Seeker</strong> heavy-blend zip hoodie — constellation print across the back, quiet mark on the chest.
       </p>
@@ -102,7 +102,7 @@ export const shellHead = ({ title, desc, image, url, type = "website", noindex =
 `;
 
 export const nav = `
-<header class="sticky top-0 z-40 border-b border-zinc-200/80 bg-paper/95 backdrop-blur">
+<header class="sticky top-0 z-40 border-b border-zinc-200/80 bg-paper/95 backdrop-blur-sm">
   <div class="shell py-3 flex items-center justify-between gap-4" x-data="{open:false}">
     <a href="/" class="inline-flex items-center gap-3">
       ${logo}
