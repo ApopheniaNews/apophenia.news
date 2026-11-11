@@ -36,47 +36,52 @@ const navLinks = (cls = "") =>
     )
     .join("\n      ");
 
-// Everything in the store, one tile each (thumbnails in public/merch/, named by product slug)
+// One product per page view, picked at random in the browser. Each: store slug, name, what the first button says, and two shots
+// as [file, label, hover-zoom origin, zoom]. The first one (the hoodie) is what shows if JavaScript is off.
 const merchItems = [
-  ["pattern-seeker", "PATTERN SEEKER zip hoodie"],
-  ["apophenia-mug", "Apophenia Mug"],
-  ["apophenia-16-oz-glass", "Apophenia 16 oz Glass"],
-  ["apophenia-clear-bottle", "Apophenia Clear Bottle"],
-  ["apophenia-steel-bottle", "Apophenia Steel Bottle"],
-  ["apophenia-backpack", "Apophenia Backpack"],
-  ["apophenia-duffle-bag", "Apophenia Duffle Bag"]
+  ["pattern-seeker", "PATTERN SEEKER", "hoodie", [["apophenia_hoodie_front.avif", "chest", "61%_29%", "2.4"], ["apophenia_hoodie_back.webp", "back", "50%_38%", "2.1"]]],
+  ["apophenia-mug", "Apophenia Mug", "mug", [["mug-1.webp", "front", "66%_44%", "2.2"], ["mug-2.webp", "back", "36%_50%", "2"]]],
+  ["apophenia-16-oz-glass", "Apophenia 16 oz Glass", "glass", [["glass-1.webp", "front", "51%_47%", "2.2"], ["glass-2.webp", "turned", "17%_77%", "2.4"]]],
+  ["apophenia-clear-bottle", "Apophenia Clear Bottle", "clear bottle", [["clear-bottle-1.webp", "front", "50%_60%", "2.4"], ["clear-bottle-2.webp", "from above", "45%_62%", "2.4"]]],
+  ["apophenia-steel-bottle", "Apophenia Steel Bottle", "steel bottle", [["steel-bottle-1.webp", "front", "48%_71%", "2.6"], ["steel-bottle-2.webp", "from above", "40%_69%", "2.6"]]],
+  ["apophenia-backpack", "Apophenia Backpack", "backpack", [["backpack-1.webp", "front", "46%_40%", "2.2"], ["backpack-2.webp", "side", "29%_40%", "2.2"]]],
+  ["apophenia-duffle-bag", "Apophenia Duffle Bag", "duffle bag", [["duffle-1.webp", "side", "52%_56%", "2.6"], ["duffle-2.webp", "end", "55%_43%", "2.2"]]]
 ];
 
 export const merch = `
-<section class="mt-10 card overflow-hidden bg-linear-to-b from-white to-indigo-50/60">
-  <div class="p-6 sm:p-8">
-    <div class="flex flex-wrap items-end justify-between gap-5">
-      <div>
-        <p class="tag mb-3"><i data-lucide="shopping-bag" class="h-3.5 w-3.5"></i>Merch</p>
-        <h2 class="text-2xl sm:text-3xl font-bold leading-tight sm:leading-9">Take the pattern with you</h2>
-        <p class="mt-3 text-zinc-700 max-w-xl">
-          The <strong>PATTERN SEEKER</strong> hoodie, plus a mug, a glass, two bottles and two bags. Each carries the mark and one small idea, and a few hide a message for whoever looks closely.
-        </p>
+<section class="mt-10 card overflow-hidden bg-linear-to-b from-white to-indigo-50/60" x-data="{ i: Math.floor(Math.random() * ${merchItems.length}) }">
+  ${merchItems
+    .map(
+      ([slug, name, short, shots], k) => `<div class="p-6 sm:p-8 grid sm:grid-cols-[1fr_340px] gap-8 items-center" x-show="i === ${k}"${k ? " x-cloak" : ""}>
+    <div>
+      <p class="tag mb-3"><i data-lucide="shopping-bag" class="h-3.5 w-3.5"></i>Merch</p>
+      <h2 class="text-2xl sm:text-3xl font-bold leading-tight sm:leading-9">${escapeHtml(name)}</h2>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a href="${STORE_URL}/products/${slug}" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700">
+          Shop the ${short} <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+        </a>
+        <a href="${STORE_URL}" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 rounded-xl border border-zinc-300 bg-white px-5 py-3 text-sm font-medium text-zinc-800 transition hover:border-indigo-300 hover:text-indigo-700">
+          Shop the whole store <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+        </a>
       </div>
-      <a href="${STORE_URL}" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700">
-        Shop the store <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-      </a>
+      <p class="mt-3 text-xs text-zinc-500 hidden sm:block">Hover a shot to zoom the print.</p>
     </div>
-    <div class="mt-6 flex gap-3 overflow-x-auto snap-x pb-1 sm:grid sm:grid-cols-7 sm:overflow-visible">
-      ${merchItems
+    <div class="grid grid-cols-2 gap-3">
+      ${shots
         .map(
-          ([slug, name]) => `<a href="${STORE_URL}/products/${slug}" target="_blank" rel="noopener" class="group block w-28 shrink-0 snap-start sm:w-auto">
-        <span class="block overflow-hidden rounded-xl border border-zinc-200/80 bg-[#f4f4f5]">
-          <img src="/merch/${slug}.webp" alt="${escapeHtml(name)}" width="400" height="400" loading="lazy" decoding="async"
-               class="aspect-square w-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" />
-        </span>
-        <span class="mt-2 block text-xs leading-snug text-zinc-600 group-hover:text-indigo-700">${escapeHtml(name)}</span>
+          ([file, label, origin, zoom]) => `<a href="${STORE_URL}/products/${slug}" target="_blank" rel="noopener" aria-label="${escapeHtml(`${name}, ${label}`)}"
+        class="block overflow-hidden rounded-xl bg-white/40">
+        <img src="/merch/${file}" alt="${escapeHtml(`${name}, ${label}`)}" width="600" height="600" loading="lazy" decoding="async"
+             class="w-full origin-[${origin}] transition-transform duration-500 ease-out hover:scale-[${zoom}]" />
       </a>`
         )
         .join("\n      ")}
     </div>
-  </div>
+  </div>`
+    )
+    .join("\n  ")}
 </section>
 `;
 
