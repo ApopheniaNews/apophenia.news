@@ -4,7 +4,7 @@ slug: agi-immortality-the-universal-sequence
 date: 2026-02-26
 author: "[Renox](/author/renox/) and Claude Opus 4.6"
 description: "Why immortality is the inevitable second step after AGI — and why any alien civilization that reaches us has already solved death."
-header_image: ./hourglass-10.webp
+header_image: ./tree-of-life-4.jpg
 tags:
   - AGI
   - immortality
@@ -18,7 +18,7 @@ tags:
   - death
 ---
 
-![Winged hourglass](./hourglass-10.webp)
+![Looking up through the branches of a tree into a glowing green canopy](./tree-of-life-4.jpg)
 
 ## The Sequence Nobody Talks About
 
