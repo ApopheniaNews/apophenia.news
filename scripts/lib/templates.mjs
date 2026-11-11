@@ -36,26 +36,28 @@ const navLinks = (cls = "") =>
     )
     .join("\n      ");
 
-// One product per page view, picked at random in the browser. Each: store slug, name, what the first button says, and two shots
-// as [file, label, hover-zoom origin, zoom]. The first one (the hoodie) is what shows if JavaScript is off.
+// One product per page view, picked at random in the browser. Each: store slug, name (for alt text), heading, the line under it
+// (HTML), what the first button says, and two shots as [file, label, hover-zoom origin, zoom]. The first (the hoodie) shows if JavaScript is off.
+const WEAR = "Wear the pattern", DRINK = "Drink the pattern", STORE = "Store the pattern";
 const merchItems = [
-  ["pattern-seeker", "PATTERN SEEKER", "hoodie", [["apophenia_hoodie_front.avif", "chest", "61%_29%", "2.4"], ["apophenia_hoodie_back.webp", "back", "50%_38%", "2.1"]]],
-  ["apophenia-mug", "Apophenia Mug", "mug", [["mug-1.webp", "front", "66%_44%", "2.2"], ["mug-2.webp", "back", "36%_50%", "2"]]],
-  ["apophenia-16-oz-glass", "Apophenia 16 oz Glass", "glass", [["glass-1.webp", "front", "51%_47%", "2.2"], ["glass-2.webp", "turned", "17%_77%", "2.4"]]],
-  ["apophenia-clear-bottle", "Apophenia Clear Bottle", "clear bottle", [["clear-bottle-1.webp", "front", "50%_60%", "2.4"], ["clear-bottle-2.webp", "from above", "45%_62%", "2.4"]]],
-  ["apophenia-steel-bottle", "Apophenia Steel Bottle", "steel bottle", [["steel-bottle-1.webp", "front", "48%_71%", "2.6"], ["steel-bottle-2.webp", "from above", "40%_69%", "2.6"]]],
-  ["apophenia-backpack", "Apophenia Backpack", "backpack", [["backpack-1.webp", "front", "46%_40%", "2.2"], ["backpack-2.webp", "side", "29%_40%", "2.2"]]],
-  ["apophenia-duffle-bag", "Apophenia Duffle Bag", "duffle bag", [["duffle-1.webp", "side", "52%_56%", "2.6"], ["duffle-2.webp", "end", "55%_43%", "2.2"]]]
+  ["pattern-seeker", "PATTERN SEEKER", WEAR, "The <strong>Pattern Seeker</strong> heavy-blend zip hoodie.", "hoodie", [["apophenia_hoodie_front.avif", "chest", "61%_29%", "2.4"], ["apophenia_hoodie_back.webp", "back", "50%_38%", "2.1"]]],
+  ["apophenia-mug", "Apophenia Mug", DRINK, "The <strong>Apophenia</strong> glossy ceramic mug.", "mug", [["mug-1.webp", "front", "66%_44%", "2.2"], ["mug-2.webp", "back", "36%_50%", "2"]]],
+  ["apophenia-16-oz-glass", "Apophenia 16 oz Glass", DRINK, "The <strong>Apophenia</strong> 16 oz glass.", "glass", [["glass-1.webp", "front", "51%_47%", "2.2"], ["glass-2.webp", "turned", "17%_77%", "2.4"]]],
+  ["apophenia-clear-bottle", "Apophenia Clear Bottle", DRINK, "The <strong>Apophenia</strong> clear Tritan bottle.", "clear bottle", [["clear-bottle-1.webp", "front", "50%_60%", "2.4"], ["clear-bottle-2.webp", "from above", "45%_62%", "2.4"]]],
+  ["apophenia-steel-bottle", "Apophenia Steel Bottle", DRINK, "The <strong>Apophenia</strong> black stainless steel bottle.", "steel bottle", [["steel-bottle-1.webp", "front", "48%_71%", "2.6"], ["steel-bottle-2.webp", "from above", "40%_69%", "2.6"]]],
+  ["apophenia-backpack", "Apophenia Backpack", STORE, "The <strong>Apophenia</strong> all-over print backpack.", "backpack", [["backpack-1.webp", "front", "46%_40%", "2.2"], ["backpack-2.webp", "side", "29%_40%", "2.2"]]],
+  ["apophenia-duffle-bag", "Apophenia Duffle Bag", STORE, "The <strong>Apophenia</strong> all-over print duffle bag.", "duffle bag", [["duffle-1.webp", "side", "52%_56%", "2.6"], ["duffle-2.webp", "end", "55%_43%", "2.2"]]]
 ];
 
 export const merch = `
 <section class="mt-10 card overflow-hidden bg-linear-to-b from-white to-indigo-50/60" x-data="{ i: Math.floor(Math.random() * ${merchItems.length}) }">
   ${merchItems
     .map(
-      ([slug, name, short, shots], k) => `<div class="p-6 sm:p-8 grid sm:grid-cols-[1fr_340px] gap-8 items-center" x-show="i === ${k}"${k ? " x-cloak" : ""}>
+      ([slug, name, head, line, short, shots], k) => `<div class="p-6 sm:p-8 grid sm:grid-cols-[1fr_340px] gap-8 items-center" x-show="i === ${k}"${k ? " x-cloak" : ""}>
     <div>
       <p class="tag mb-3"><i data-lucide="shopping-bag" class="h-3.5 w-3.5"></i>Merch</p>
-      <h2 class="text-2xl sm:text-3xl font-bold leading-tight sm:leading-9">${escapeHtml(name)}</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold leading-tight sm:leading-9">${head}</h2>
+      <p class="mt-3 text-zinc-700 max-w-md">${line}</p>
       <div class="mt-5 flex flex-wrap gap-3">
         <a href="${STORE_URL}/products/${slug}" target="_blank" rel="noopener"
            class="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700">
