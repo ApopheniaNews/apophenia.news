@@ -54,7 +54,7 @@ ${nav}
 <main class="shell py-10">
   <section class="card p-6 sm:p-10 bg-linear-to-b from-white to-indigo-50/50">
     <p class="tag mb-3"><i data-lucide="sparkles" class="h-3.5 w-3.5"></i>Pattern Intelligence Journalism</p>
-    <h1 class="text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">The news outlet for pattern seekers</h1>
+    <h1 class="font-hero text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">The news outlet for pattern seekers</h1>
     <p class="mt-4 text-zinc-700 max-w-2xl">High-agency analysis at the intersection of AGI, consciousness, geopolitics, and first-contact logic.</p>
   </section>
 
@@ -115,7 +115,7 @@ ${nav}
           <i data-lucide="copy" class="h-4 w-4"></i><span aria-live="polite" class="hidden sm:inline">Copy article</span>
         </button>
       </div>
-      <h1 class="mt-2 text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">${escapeHtml(article.title)}</h1>
+      <h1 class="font-title mt-2 text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">${escapeHtml(article.title)}</h1>
       <p class="mt-4 text-zinc-700 max-w-3xl">${escapeHtml(article.description || "")}</p>
       <div class="mt-5 flex flex-wrap gap-2">
         ${(article.tags || []).map((t) => `<span class="tag">#${escapeHtml(t)}</span>`).join("")}

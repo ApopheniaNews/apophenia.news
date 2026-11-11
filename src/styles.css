@@ -2,6 +2,8 @@
 @import "@fontsource/source-serif-4/400.css";
 @import "@fontsource/source-serif-4/600.css";
 @import "@fontsource/source-serif-4/700.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource-variable/google-sans-flex";
 @import "tailwindcss" source(none);
 /* Layered so the components below still win over KaTeX, as they did before cascade layers */
 @import "katex/dist/katex.min.css" layer(base);
@@ -15,6 +17,8 @@
   --color-soft: #eef2ff;
   --font-sans: "Space Grotesk Variable", ui-sans-serif, system-ui;
   --font-serif: "Source Serif 4", ui-serif, Georgia;
+  --font-hero: Poppins, ui-sans-serif, system-ui; /* the front page headline */
+  --font-title: "Google Sans Flex Variable", ui-sans-serif, system-ui; /* article page titles */
   --font-mono: Monostain, ui-monospace, SFMono-Regular, Menlo, monospace;
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
