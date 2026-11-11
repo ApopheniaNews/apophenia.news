@@ -106,7 +106,7 @@ export const nav = `
   <div class="shell py-3 flex items-center justify-between gap-4" x-data="{open:false}">
     <a href="/" class="inline-flex items-center gap-3">
       ${logo}
-      <div>
+      <div class="font-title">
         <p class="text-lg leading-none font-bold">apophenia.news</p>
         <p class="text-xs text-zinc-500">for pattern seekers</p>
       </div>
