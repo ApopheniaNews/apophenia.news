@@ -45,8 +45,8 @@ const merchItems = [
   ["apophenia-16-oz-glass", "Apophenia 16 oz Glass", DRINK, "The <strong>Apophenia</strong> 16 oz glass.", "glass", [["glass-1.webp", "front", "51%_47%", "2.2"], ["glass-2.webp", "turned", "17%_77%", "2.4"]]],
   ["apophenia-clear-bottle", "Apophenia Clear Bottle", DRINK, "The <strong>Apophenia</strong> clear Tritan bottle.", "clear bottle", [["clear-bottle-1.webp", "front", "50%_60%", "2.4"], ["clear-bottle-2.webp", "from above", "45%_62%", "2.4"]]],
   ["apophenia-steel-bottle", "Apophenia Steel Bottle", DRINK, "The <strong>Apophenia</strong> black stainless steel bottle.", "steel bottle", [["steel-bottle-1.webp", "front", "48%_71%", "2.6"], ["steel-bottle-2.webp", "from above", "40%_69%", "2.6"]]],
-  ["apophenia-backpack", "Apophenia Backpack", STORE, "The <strong>Apophenia</strong> all-over print backpack.", "backpack", [["backpack-1.webp", "front", "46%_40%", "2.2"], ["backpack-2.webp", "side", "29%_40%", "2.2"]]],
-  ["apophenia-duffle-bag", "Apophenia Duffle Bag", STORE, "The <strong>Apophenia</strong> all-over print duffle bag.", "duffle bag", [["duffle-1.webp", "side", "52%_56%", "2.6"], ["duffle-2.webp", "end", "55%_43%", "2.2"]]]
+  ["apophenia-backpack", "Apophenia Backpack", STORE, "The <strong>Apophenia</strong> backpack.", "backpack", [["backpack-1.webp", "front", "46%_40%", "2.2"], ["backpack-2.webp", "side", "29%_40%", "2.2"]]],
+  ["apophenia-duffle-bag", "Apophenia Duffle Bag", STORE, "The <strong>Apophenia</strong> duffle bag.", "duffle bag", [["duffle-1.webp", "side", "52%_56%", "2.6"], ["duffle-2.webp", "end", "55%_43%", "2.2"]]]
 ];
 
 export const merch = `
