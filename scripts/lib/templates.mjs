@@ -38,6 +38,7 @@ const navLinks = (cls = "") =>
 
 // One product per page view, picked at random in the browser. Each: store slug, name (for alt text), heading, the line under it
 // (HTML), what the first button says, and two shots as [file, label, hover-zoom origin, zoom]. The first (the hoodie) shows if JavaScript is off.
+// Phones stack text, shots, then buttons. From sm up the shots sit on the right and the buttons go back under the text.
 const WEAR = "Wear the pattern", DRINK = "Drink the pattern", STORE = "Store the pattern";
 const merchItems = [
   ["pattern-seeker", "PATTERN SEEKER", WEAR, "The <strong>Pattern Seeker</strong> heavy-blend zip hoodie.", "hoodie", [["apophenia_hoodie_front.avif", "chest", "61%_29%", "2.4"], ["apophenia_hoodie_back.webp", "back", "50%_38%", "2.1"]]],
@@ -53,24 +54,13 @@ export const merch = `
 <section class="mt-10 card overflow-hidden bg-linear-to-b from-white to-indigo-50/60" x-data="{ i: Math.floor(Math.random() * ${merchItems.length}) }">
   ${merchItems
     .map(
-      ([slug, name, head, line, short, shots], k) => `<div class="p-6 sm:p-8 grid sm:grid-cols-[1fr_340px] gap-8 items-center" x-show="i === ${k}"${k ? " x-cloak" : ""}>
-    <div>
+      ([slug, name, head, line, short, shots], k) => `<div class="p-6 sm:p-8 grid sm:grid-cols-[1fr_340px] gap-x-8 gap-y-6 sm:gap-y-5 items-center" x-show="i === ${k}"${k ? " x-cloak" : ""}>
+    <div class="sm:self-end">
       <p class="tag mb-3"><i data-lucide="shopping-bag" class="h-3.5 w-3.5"></i>Merch</p>
       <h2 class="text-2xl sm:text-3xl font-bold leading-tight sm:leading-9">${head}</h2>
       <p class="mt-3 text-zinc-700 max-w-md">${line}</p>
-      <div class="mt-5 flex flex-wrap gap-3">
-        <a href="${STORE_URL}/products/${slug}" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700">
-          Shop the ${short} <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-        </a>
-        <a href="${STORE_URL}" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-2 rounded-xl border border-zinc-300 bg-white px-5 py-3 text-sm font-medium text-zinc-800 transition hover:border-indigo-300 hover:text-indigo-700">
-          Shop the whole store <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-        </a>
-      </div>
-      <p class="mt-3 text-xs text-zinc-500 hidden sm:block">Hover a shot to zoom the print.</p>
     </div>
-    <div class="grid grid-cols-2 gap-3">
+    <div class="grid grid-cols-2 gap-3 sm:col-start-2 sm:row-start-1 sm:row-span-2">
       ${shots
         .map(
           ([file, label, origin, zoom]) => `<a href="${STORE_URL}/products/${slug}" target="_blank" rel="noopener" aria-label="${escapeHtml(`${name}, ${label}`)}"
@@ -80,6 +70,19 @@ export const merch = `
       </a>`
         )
         .join("\n      ")}
+    </div>
+    <div class="sm:self-start">
+      <div class="flex flex-wrap gap-2 sm:gap-3">
+        <a href="${STORE_URL}/products/${slug}" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-1.5 sm:gap-2 whitespace-nowrap rounded-xl bg-accent px-4 sm:px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700">
+          Shop the ${short} <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+        </a>
+        <a href="${STORE_URL}" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-1.5 sm:gap-2 whitespace-nowrap rounded-xl border border-zinc-300 bg-white px-4 sm:px-5 py-3 text-sm font-medium text-zinc-800 transition hover:border-indigo-300 hover:text-indigo-700">
+          <span class="sm:hidden">Whole store</span><span class="max-sm:hidden">Shop the whole store</span> <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+        </a>
+      </div>
+      <p class="mt-3 text-xs text-zinc-500 hidden sm:block">Hover a shot to zoom the print.</p>
     </div>
   </div>`
     )
