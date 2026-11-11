@@ -2,7 +2,6 @@ import { SITE_URL } from "./constants.mjs";
 import { escapeHtml } from "./utils.mjs";
 
 const STORE_URL = "https://store.apophenia.news";
-const PRODUCT_URL = `${STORE_URL}/products/pattern-seeker`;
 
 const logo = `
 <svg class="h-10 w-10 brand-glow" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Apophenia News logo">
@@ -37,33 +36,42 @@ const navLinks = (cls = "") =>
     )
     .join("\n      ");
 
-const merchShots = [
-  { src: "/merch/apophenia_hoodie_front.avif", alt: "Pattern Seeker zip hoodie — chest mark", origin: "61%_29%", zoom: "2.4" },
-  { src: "/merch/apophenia_hoodie_back.webp", alt: "Pattern Seeker zip hoodie — constellation back print", origin: "50%_38%", zoom: "2.1" }
+// Everything in the store, one tile each (thumbnails in public/merch/, named by product slug)
+const merchItems = [
+  ["pattern-seeker", "PATTERN SEEKER zip hoodie"],
+  ["apophenia-mug", "Apophenia Mug"],
+  ["apophenia-16-oz-glass", "Apophenia 16 oz Glass"],
+  ["apophenia-clear-bottle", "Apophenia Clear Bottle"],
+  ["apophenia-steel-bottle", "Apophenia Steel Bottle"],
+  ["apophenia-backpack", "Apophenia Backpack"],
+  ["apophenia-duffle-bag", "Apophenia Duffle Bag"]
 ];
 
 export const merch = `
 <section class="mt-10 card overflow-hidden bg-linear-to-b from-white to-indigo-50/60">
-  <div class="p-6 sm:p-8 grid sm:grid-cols-[1fr_340px] gap-8 items-center">
-    <div>
-      <p class="tag mb-3"><i data-lucide="shopping-bag" class="h-3.5 w-3.5"></i>Merch</p>
-      <h2 class="text-2xl sm:text-3xl font-bold leading-tight sm:leading-9">Wear the pattern</h2>
-      <p class="mt-3 text-zinc-700 max-w-md">
-        The <strong>Pattern Seeker</strong> heavy-blend zip hoodie — constellation print across the back, quiet mark on the chest.
-      </p>
-      <a href="${PRODUCT_URL}" target="_blank" rel="noopener"
-         class="mt-5 inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700">
-        Shop the hoodie <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+  <div class="p-6 sm:p-8">
+    <div class="flex flex-wrap items-end justify-between gap-5">
+      <div>
+        <p class="tag mb-3"><i data-lucide="shopping-bag" class="h-3.5 w-3.5"></i>Merch</p>
+        <h2 class="text-2xl sm:text-3xl font-bold leading-tight sm:leading-9">Take the pattern with you</h2>
+        <p class="mt-3 text-zinc-700 max-w-xl">
+          The <strong>PATTERN SEEKER</strong> hoodie, plus a mug, a glass, two bottles and two bags. Each carries the mark and one small idea, and a few hide a message for whoever looks closely.
+        </p>
+      </div>
+      <a href="${STORE_URL}" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700">
+        Shop the store <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
       </a>
-      <p class="mt-3 text-xs text-zinc-500 hidden sm:block">Hover a shot to zoom the print.</p>
     </div>
-    <div class="grid grid-cols-2 gap-3">
-      ${merchShots
+    <div class="mt-6 flex gap-3 overflow-x-auto snap-x pb-1 sm:grid sm:grid-cols-7 sm:overflow-visible">
+      ${merchItems
         .map(
-          (m) => `<a href="${PRODUCT_URL}" target="_blank" rel="noopener" aria-label="${escapeHtml(m.alt)}"
-        class="block overflow-hidden rounded-xl bg-white/40">
-        <img src="${m.src}" alt="${escapeHtml(m.alt)}" loading="lazy" decoding="async"
-             class="w-full origin-[${m.origin}] transition-transform duration-500 ease-out hover:scale-[${m.zoom}]" />
+          ([slug, name]) => `<a href="${STORE_URL}/products/${slug}" target="_blank" rel="noopener" class="group block w-28 shrink-0 snap-start sm:w-auto">
+        <span class="block overflow-hidden rounded-xl border border-zinc-200/80 bg-[#f4f4f5]">
+          <img src="/merch/${slug}.webp" alt="${escapeHtml(name)}" width="400" height="400" loading="lazy" decoding="async"
+               class="aspect-square w-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" />
+        </span>
+        <span class="mt-2 block text-xs leading-snug text-zinc-600 group-hover:text-indigo-700">${escapeHtml(name)}</span>
       </a>`
         )
         .join("\n      ")}
