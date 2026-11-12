@@ -42,6 +42,12 @@ if (ss && btn) {
     return ss.getVoices().filter((v) => /^en/i.test(v.lang)).sort((a, b) => score(b) - score(a))[0];
   };
 
+  // Chrome loads its voices in the background and answers the first getVoices() with an empty list, so ask as soon as
+  // the page opens and pick again whenever the list fills in. Asking only on the first tap meant no voice at all.
+  const loadVoice = () => (voice = pickVoice() || voice);
+  loadVoice();
+  ss.onvoiceschanged = loadVoice;
+
   const inView = (el, whole) => {
     const r = el.getBoundingClientRect();
     return whole ? r.top >= 0 && r.bottom <= innerHeight : r.bottom > 0 && r.top < innerHeight;
@@ -89,7 +95,7 @@ if (ss && btn) {
   // Every cancel bumps run, so a late onend from the cancelled sentence (Safari fires one) can't carry on reading
   const play = () => {
     blocks ||= pick();
-    voice ||= pickVoice();
+    loadVoice();
     run++;
     if (ss.speaking || ss.pending) ss.cancel();
     setState("playing");
