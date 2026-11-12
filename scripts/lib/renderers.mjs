@@ -94,6 +94,9 @@ ${nav}
 ${footer}
 `;
 
+// The small buttons above an article's title: Listen, its speed, and Copy article
+const toolBtn = "inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-2 py-2 text-sm font-medium text-zinc-800 shadow-xs transition hover:bg-zinc-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-400 sm:px-3";
+
 export const renderArticle = (article, dates = articleDates(article)) => `
 ${shellHead({
   title: `${article.title} — apophenia.news`,
@@ -111,11 +114,17 @@ ${nav}
     <div class="p-6 sm:p-10">
       <div class="flex items-center justify-between gap-4">
         <p class="text-xs uppercase tracking-wide text-zinc-500">${fmtDate(article.date)} • ${renderAuthorInline(article.author)}</p>
-        <button type="button" data-copy-article aria-label="Copy article" class="inline-flex shrink-0 items-center gap-2 rounded-lg border border-zinc-200 bg-white px-2 py-2 text-sm font-medium text-zinc-800 shadow-xs transition hover:bg-zinc-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-400 sm:px-3">
-          <i data-lucide="copy" class="h-4 w-4"></i><span aria-live="polite" class="hidden sm:inline">Copy article</span>
-        </button>
+        <div class="flex shrink-0 items-center gap-2">
+          <button type="button" data-listen-rate hidden aria-label="Reading speed" class="${toolBtn} tabular-nums">1×</button>
+          <button type="button" data-listen hidden aria-label="Listen" class="${toolBtn}">
+            <i data-lucide="headphones" data-when="idle" class="h-4 w-4"></i><i data-lucide="pause" data-when="playing" hidden class="h-4 w-4"></i><i data-lucide="play" data-when="paused" hidden class="h-4 w-4"></i><span data-listen-label class="hidden sm:inline">Listen</span>
+          </button>
+          <button type="button" data-copy-article aria-label="Copy article" class="${toolBtn}">
+            <i data-lucide="copy" class="h-4 w-4"></i><span aria-live="polite" class="hidden sm:inline">Copy article</span>
+          </button>
+        </div>
       </div>
-      <h1 class="font-title mt-2 text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">${escapeHtml(article.title)}</h1>
+      <h1 data-listen-title class="font-title mt-2 text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">${escapeHtml(article.title)}</h1>
       <p class="mt-4 text-zinc-700 max-w-3xl">${escapeHtml(article.description || "")}</p>
       <div class="mt-5 flex flex-wrap gap-2">
         ${(article.tags || []).map((t) => `<span class="tag">#${escapeHtml(t)}</span>`).join("")}

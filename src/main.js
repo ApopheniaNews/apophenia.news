@@ -1,6 +1,7 @@
 import Alpine from "alpinejs";
 import { createIcons, icons } from "lucide";
 import "./styles.css";
+import "./read-aloud.js";
 
 window.Alpine = Alpine;
 Alpine.start();
