@@ -90,9 +90,11 @@ export const merch = `
 </section>
 `;
 
-// Favicon and analytics: every page gets these, including the web versions of newsletter issues
+// Favicon and analytics: every page gets these, including the web versions of newsletter issues.
+// GoatCounter counts the readers it can reach; c (github.com/multipleof4/c) passes on the ones whose adblocker stops it
 export const siteHead = `<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <script data-goatcounter="https://apophenia.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>`;
+  <script data-goatcounter="https://apophenia.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script async src="https://c.apophenia.news/c.js"></script>`;
 
 export const shellHead = ({ title, desc, image, url, type = "website", noindex = false, published, modified, jsonLd }) => `<!doctype html>
 <html lang="en">
