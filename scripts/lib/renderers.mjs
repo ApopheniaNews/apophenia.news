@@ -481,7 +481,7 @@ ${nav}
       <h2>Your data</h2>
       <p>Write to <a href="mailto:apophenia@planetrenox.com">apophenia@planetrenox.com</a> to ask what we hold about you, or to have it deleted. For the visit log, tell us your IP address and roughly when you visited: that is all we can look an entry up by.</p>
       <p>For the visit count and log we rely on our legitimate interest in knowing how the site is read and keeping it free of abuse, and for the newsletter on your consent. If you are in the EU or the UK you can also complain to your data protection authority.</p>
-      <p class="text-sm text-zinc-500">Last updated November 14, 2026. apophenia.news is run by <a href="/author/renox/">Renox</a>.</p>
+      <p class="text-sm text-zinc-500">Last updated November 14, 2026.</p>
     </div>
   </article>
 </main>
