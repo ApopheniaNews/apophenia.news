@@ -24,8 +24,7 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/newsletter/", label: "Newsletter" },
   { href: STORE_URL, label: "Store", external: true },
-  { href: "/write/", label: "Become a writer" },
-  { href: "/rss.xml", label: "RSS" }
+  { href: "/write/", label: "Become a writer" }
 ];
 
 const navLinks = (cls = "") =>
@@ -126,7 +125,7 @@ export const nav = `
   <div class="shell py-3 flex items-center justify-between gap-4" x-data="{open:false}">
     <a href="/" class="inline-flex items-center gap-3">
       ${logo}
-      <div class="font-title">
+      <div>
         <p class="text-lg leading-none font-bold">apophenia.news</p>
         <p class="text-xs text-zinc-500">for pattern seekers</p>
       </div>
@@ -148,7 +147,7 @@ export const footer = `
 <footer class="mt-16 border-t border-zinc-200 bg-white/70">
   <div class="shell py-8 text-sm text-zinc-600 flex flex-col sm:flex-row justify-between gap-2">
     <p>Apophenia News — finding patterns in the noise since 2026</p>
-    <p><a href="/privacy/" class="hover:text-zinc-900 hover:underline">Privacy</a> · <a href="https://youtube.com/@ApopheniaLoop" target="_blank" rel="noopener" class="hover:text-zinc-900 hover:underline">YouTube</a> · © ${new Date().getFullYear()} apophenia.news</p>
+    <p><a href="/privacy/" class="hover:text-zinc-900 hover:underline">Privacy</a> · <a href="/rss.xml" class="hover:text-zinc-900 hover:underline">RSS</a> · <a href="https://youtube.com/@ApopheniaLoop" target="_blank" rel="noopener" class="hover:text-zinc-900 hover:underline">YouTube</a> · © ${new Date().getFullYear()} apophenia.news</p>
   </div>
 </footer>
 </body>

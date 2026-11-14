@@ -1,7 +1,3 @@
-@import "@fontsource-variable/space-grotesk";
-@import "@fontsource/source-serif-4/400.css";
-@import "@fontsource/source-serif-4/600.css";
-@import "@fontsource/source-serif-4/700.css";
 @import "@fontsource/poppins/700.css";
 @import "@fontsource-variable/google-sans-flex";
 @import "tailwindcss" source(none);
@@ -15,10 +11,8 @@
   --color-ink: #15151b;
   --color-accent: #4f46e5;
   --color-soft: #eef2ff;
-  --font-sans: "Space Grotesk Variable", ui-sans-serif, system-ui;
-  --font-serif: "Source Serif 4", ui-serif, Georgia;
+  --font-sans: "Google Sans Flex Variable", ui-sans-serif, system-ui; /* everything but the front page headline and code */
   --font-hero: Poppins, ui-sans-serif, system-ui; /* the front page headline */
-  --font-title: "Google Sans Flex Variable", ui-sans-serif, system-ui; /* article page titles, and the site name and tagline in the header */
   --font-mono: Monostain, ui-monospace, SFMono-Regular, Menlo, monospace;
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
@@ -65,7 +59,7 @@
   }
 
   h1, h2, h3 {
-    @apply font-serif tracking-tight;
+    @apply tracking-tight;
   }
 
   a {
@@ -87,7 +81,7 @@
   }
 
   .article-prose {
-    @apply prose prose-zinc max-w-none prose-headings:font-serif prose-headings:text-zinc-900 prose-p:text-zinc-800 prose-li:text-zinc-800 prose-strong:text-zinc-900 prose-a:text-indigo-600 prose-a:hover:text-indigo-700 prose-img:rounded-xl prose-img:shadow-md;
+    @apply prose prose-zinc max-w-none prose-headings:text-zinc-900 prose-p:text-zinc-800 prose-li:text-zinc-800 prose-strong:text-zinc-900 prose-a:text-indigo-600 prose-a:hover:text-indigo-700 prose-img:rounded-xl prose-img:shadow-md;
   }
 
   .article-prose .katex-display {

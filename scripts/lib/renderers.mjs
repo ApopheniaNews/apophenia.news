@@ -127,7 +127,7 @@ ${nav}
           </button>
         </div>
       </div>
-      <h1 data-listen-title class="font-title mt-2 text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">${escapeHtml(article.title)}</h1>
+      <h1 data-listen-title class="mt-2 text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">${escapeHtml(article.title)}</h1>
       <p class="mt-4 text-zinc-700 max-w-3xl">${escapeHtml(article.description || "")}</p>
       <div class="mt-5 flex flex-wrap gap-2">
         ${(article.tags || []).map((t) => `<span class="tag">#${escapeHtml(t)}</span>`).join("")}
