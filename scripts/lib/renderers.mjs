@@ -97,6 +97,9 @@ ${footer}
 // The small buttons above an article's title: Listen, its speed, and Copy article
 const toolBtn = "inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-2 py-2 text-sm font-medium text-zinc-800 shadow-xs transition hover:bg-zinc-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-400 sm:px-3";
 
+// Visit count, shown once an article passes 50: c's script (see siteHead) appends the number and unhides this
+const views = `<span data-c="50" hidden class="whitespace-nowrap"> • <i data-lucide="eye" class="inline-block h-3.5 w-3.5 align-[-0.2em]"></i> <span class="sr-only">Views: </span></span>`;
+
 export const renderArticle = (article, dates = articleDates(article)) => `
 ${shellHead({
   title: `${article.title} — apophenia.news`,
@@ -113,7 +116,7 @@ ${nav}
     <img src="${article.header_image}" alt="${escapeHtml(article.title)}" class="h-64 w-full object-cover" />
     <div class="p-6 sm:p-10">
       <div class="flex items-center justify-between gap-4">
-        <p class="text-xs uppercase tracking-wide text-zinc-500">${fmtDate(article.date)} • ${renderAuthorInline(article.author)}</p>
+        <p class="text-xs uppercase tracking-wide text-zinc-500">${fmtDate(article.date)} • ${renderAuthorInline(article.author)}${views}</p>
         <div class="flex shrink-0 items-center gap-2">
           <button type="button" data-listen-rate hidden aria-label="Reading speed" class="${toolBtn} tabular-nums">1×</button>
           <button type="button" data-listen hidden aria-label="Listen" class="${toolBtn}">
