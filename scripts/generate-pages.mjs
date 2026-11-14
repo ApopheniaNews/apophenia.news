@@ -7,7 +7,7 @@ import { marked } from "marked";
 import markedKatex from "marked-katex-extension";
 import { ARTICLES_GLOB, AUTHOR_PAGES, ISSUES_GLOB, ROOT, SRC, UNLISTED_PATH } from "./lib/constants.mjs";
 import { fixInternalLinks } from "./lib/utils.mjs";
-import { renderArticle, renderHome, renderWritePage, renderNewsletterPage, renderIssue, renderUnsubscribePage, renderAuthorPage, renderNotFound } from "./lib/renderers.mjs";
+import { renderArticle, renderAuthorPage, renderHome, renderIssue, renderNewsletterPage, renderNotFound, renderPrivacyPage, renderUnsubscribePage, renderWritePage } from "./lib/renderers.mjs";
 import { ensureCleanGenerated, writeDiscoveryFiles, writePage } from "./lib/io.mjs";
 
 marked.use(markedKatex({ throwOnError: false, nonStandard: true }));
@@ -103,6 +103,7 @@ const run = async () => {
 
   await writePage([SRC, "index.html"], renderHome(listedArticles));
   await writePage([SRC, "write", "index.html"], renderWritePage());
+  await writePage([SRC, "privacy", "index.html"], renderPrivacyPage());
   await writePage([SRC, "newsletter", "index.html"], renderNewsletterPage(issues));
   for (const issue of issues) await writePage([SRC, "newsletter", issue.dir, "index.html"], renderIssue(issue));
   await writePage([SRC, "newsletter", "unsubscribe.html"], renderUnsubscribePage());
@@ -119,7 +120,7 @@ const run = async () => {
 
   await writeDiscoveryFiles(listedArticles, AUTHOR_PAGES, issues);
 
-  console.log(`Generated ${articles.length} article pages (${listedArticles.length} listed) + home + write + newsletter (${issues.length} issues) + unsubscribe + author pages + 404 + rss/sitemap/robots.`);
+  console.log(`Generated ${articles.length} article pages (${listedArticles.length} listed) + home + write + privacy + newsletter (${issues.length} issues) + unsubscribe + author pages + 404 + rss/sitemap/robots.`);
 };
 
 run().catch((err) => {

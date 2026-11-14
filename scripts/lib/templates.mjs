@@ -148,7 +148,7 @@ export const footer = `
 <footer class="mt-16 border-t border-zinc-200 bg-white/70">
   <div class="shell py-8 text-sm text-zinc-600 flex flex-col sm:flex-row justify-between gap-2">
     <p>Apophenia News — finding patterns in the noise since 2026</p>
-    <p><a href="https://youtube.com/@ApopheniaLoop" target="_blank" rel="noopener" class="hover:text-zinc-900 hover:underline">YouTube</a> · © ${new Date().getFullYear()} apophenia.news</p>
+    <p><a href="/privacy/" class="hover:text-zinc-900 hover:underline">Privacy</a> · <a href="https://youtube.com/@ApopheniaLoop" target="_blank" rel="noopener" class="hover:text-zinc-900 hover:underline">YouTube</a> · © ${new Date().getFullYear()} apophenia.news</p>
   </div>
 </footer>
 </body>

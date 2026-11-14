@@ -257,7 +257,7 @@ ${nav}
         <span x-text="error"></span>
       </p>
 
-      <p class="mt-4 text-xs text-zinc-500"><a href="/newsletter/unsubscribe" class="underline">Unsubscribe</a> anytime. We never share your email.</p>
+      <p class="mt-4 text-xs text-zinc-500"><a href="/newsletter/unsubscribe" class="underline">Unsubscribe</a> anytime. We never share your email. <a href="/privacy/" class="underline">Privacy</a></p>
     </form>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </article>
@@ -402,7 +402,7 @@ ${nav}
       <h2>How to submit</h2>
       <ul>
         <li>Write your article in a <strong>.md (Markdown)</strong> file.</li>
-        <li>Email it to <a href="mailto:planetrenox@pm.me">planetrenox@pm.me</a>.</li>
+        <li>Email it to <a href="mailto:planetrenox@protonmail.com">planetrenox@protonmail.com</a>.</li>
         <li>If approved, your story will be published on apophenia.news.</li>
         <li>Your byline can use your real name or an alias.</li>
       </ul>
@@ -419,6 +419,69 @@ tags:
   - your-tag
   - another-tag
 ---</code></pre>
+    </div>
+  </article>
+</main>
+${footer}
+`;
+
+// What the site records about readers. Keep it true: it describes GoatCounter and c (siteHead), Cloudflare's hosting and
+// Web Analytics, the newsletter backend (newsletter.planetrenox.com) and what read-aloud.js saves in the browser
+export const renderPrivacyPage = () => `
+${shellHead({
+  title: "Privacy — apophenia.news",
+  desc: "What apophenia.news records when you read it, why, and for how long.",
+  image: "https://free.direct-img.link/padlock?i=3",
+  url: `${SITE_URL}/privacy/`,
+  type: "website"
+})}
+${nav}
+<main class="shell py-10">
+  <article class="card p-6 sm:p-10">
+    <p class="tag mb-3"><i data-lucide="shield" class="h-3.5 w-3.5"></i>Privacy</p>
+    <h1 class="text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">Privacy</h1>
+    <p class="mt-4 text-zinc-700 max-w-3xl">What apophenia.news records when you read it, why, and for how long.</p>
+
+    <div class="article-prose mt-8">
+      <h2>The short version</h2>
+      <ul>
+        <li>No ads and no cookies. Nothing is sold, or handed to anyone outside the services named on this page.</li>
+        <li>We count visits and keep a log of them, IP addresses included, for 90 days.</li>
+        <li>If you subscribe to the newsletter we keep your email address until you ask us to delete it.</li>
+      </ul>
+
+      <h2>When you read a page</h2>
+      <p>We count visits to know how many people read each article and to keep bots out of the numbers. A visit records the page, the page you came from, the time, your IP address, and what your browser says about itself: its name and version, your system, language, time zone, screen size and whether it is a touch screen.</p>
+      <p>Two counters see a visit:</p>
+      <ul>
+        <li><strong>GoatCounter</strong>, a privacy-focused counting service. It uses your IP address to tell visits apart and to work out your country, and does not store it. See <a href="https://www.goatcounter.com/help/privacy" target="_blank" rel="noopener">GoatCounter's privacy policy</a>.</li>
+        <li><strong>c</strong>, a small counter we run on our own server at c.apophenia.news. It keeps a log of visits with everything listed above for 90 days, then deletes it. If your browser blocks GoatCounter, c passes your visit on to GoatCounter, IP address included, so that it is still counted. An ad blocker therefore does not stop the count. The button below does.</li>
+      </ul>
+      <p>The site is hosted by Cloudflare, which handles every request and so sees your IP address, as any host does. Cloudflare also shows us visit totals through Cloudflare Web Analytics, which uses no cookies. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's privacy policy</a>.</p>
+
+      <h2>Stop counting my visits</h2>
+      <p>This turns off GoatCounter and c in this browser. The choice is saved in the browser itself, so it has to be made again on another device, or after clearing this site's data.</p>
+      <div class="not-prose" x-data="{ off: (() => { try { return localStorage.getItem('skipgc') == 't' } catch { return false } })() }">
+        <button type="button" class="${toolBtn}" @click="off = !off; off ? localStorage.setItem('skipgc', 't') : localStorage.removeItem('skipgc')">
+          <i data-lucide="eye-off" class="h-4 w-4"></i><span aria-live="polite" x-text="off ? 'Count my visits again' : 'Don’t count my visits'">Don’t count my visits</span>
+        </button>
+        <p x-show="off" x-cloak class="mt-3 text-sm font-medium text-emerald-700">Visits from this browser are not counted.</p>
+      </div>
+
+      <h2>What stays in your browser</h2>
+      <p>No cookies. Two settings are saved in your browser and never sent to us: your listening speed for the Listen button, and the choice above if you make it.</p>
+
+      <h2>Newsletter</h2>
+      <p>If you subscribe we store your email address, the date, and the IP address you subscribed from, in a database at Cloudflare. A Cloudflare check called Turnstile runs on the newsletter page to make sure a person is signing up. Issues are sent through Resend, which receives your email address in order to deliver them.</p>
+      <p>Every issue has an unsubscribe link, and you can also <a href="/newsletter/unsubscribe">unsubscribe here</a>. After that we send you nothing, but your address stays on file marked as unsubscribed, with the date and the IP address used, until you ask us to delete it.</p>
+
+      <h2>Elsewhere</h2>
+      <p>The <a href="https://store.apophenia.news" target="_blank" rel="noopener">merch store</a> runs on a separate shop platform and our videos are on YouTube. Each has its own privacy policy, and what you do there is not covered here. If you email us, for example to send in an article, we keep your message.</p>
+
+      <h2>Your data</h2>
+      <p>Write to <a href="mailto:apophenia@planetrenox.com">apophenia@planetrenox.com</a> to ask what we hold about you, or to have it deleted. For the visit log, tell us your IP address and roughly when you visited: that is all we can look an entry up by.</p>
+      <p>For the visit count and log we rely on our legitimate interest in knowing how the site is read and keeping it free of abuse, and for the newsletter on your consent. If you are in the EU or the UK you can also complain to your data protection authority.</p>
+      <p class="text-sm text-zinc-500">Last updated November 14, 2026. apophenia.news is run by <a href="/author/renox/">Renox</a>.</p>
     </div>
   </article>
 </main>
@@ -444,9 +507,18 @@ ${nav}
         Photo coming soon
       </div>
 
-      <div class="article-prose max-w-none">
+      <div class="article-prose max-w-none min-w-0" x-data="{ copied: false }">
         <p>${escapeHtml(author.bio)}</p>
         <p><strong>Contact:</strong> <a href="mailto:${escapeHtml(author.contact)}">${escapeHtml(author.contact)}</a></p>
+        ${author.pgp ? `<h2>PGP public key</h2>
+        <p class="text-sm text-zinc-500">Fingerprint: ${escapeHtml(author.pgp.fingerprint)}</p>
+        <pre><code x-ref="key">${escapeHtml(author.pgp.key)}</code></pre>
+        <p class="not-prose flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+          <button type="button" class="${toolBtn}" @click="navigator.clipboard.writeText($refs.key.textContent + '\\n').then(() => { copied = true; setTimeout(() => copied = false, 2500) })">
+            <i data-lucide="copy" class="h-4 w-4"></i><span aria-live="polite" x-text="copied ? 'Copied!' : 'Copy key'">Copy key</span>
+          </button>
+          <a href="${author.pgp.url}" class="underline">Download publickey.asc</a>
+        </p>` : ""}
       </div>
     </div>
   </article>
@@ -507,6 +579,7 @@ export const renderSitemap = (articles, authors = [], issues = []) => {
     { loc: `${SITE_URL}/`, lastmod: now },
     { loc: `${SITE_URL}/newsletter/`, lastmod: now },
     { loc: `${SITE_URL}/write/`, lastmod: now },
+    { loc: `${SITE_URL}/privacy/`, lastmod: now },
     ...authors.map((a) => ({ loc: `${SITE_URL}/author/${a.slug}/`, lastmod: now })),
     ...issues.map((i) => ({ loc: `${SITE_URL}/newsletter/${i.dir}/`, lastmod: i.date })),
     ...articles.map((a) => ({ loc: `${SITE_URL}/${a.slug}/`, lastmod: toISODate(articleDates(a).modified) }))
