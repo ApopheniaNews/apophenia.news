@@ -3,15 +3,16 @@ import { execFileSync } from "node:child_process";
 import path from "node:path";
 import fg from "fast-glob";
 import matter from "gray-matter";
-import { marked } from "marked";
-import markedKatex from "marked-katex-extension";
+import MarkdownIt from "markdown-it";
+import latexPlus from "markdown-it-latex-plus";
 import { ARTICLES_GLOB, AUTHOR_PAGES, ISSUES_GLOB, ROOT, SRC, UNLISTED_PATH } from "./lib/constants.mjs";
 import { fixInternalLinks } from "./lib/utils.mjs";
 import { renderArticle, renderAuthorPage, renderHome, renderIssue, renderNewsletterPage, renderNotFound, renderPrivacyPage, renderUnsubscribePage, renderWritePage } from "./lib/renderers.mjs";
 import { ensureCleanGenerated, writeDiscoveryFiles, writePage } from "./lib/io.mjs";
 
-marked.use(markedKatex({ throwOnError: false, nonStandard: true }));
-marked.setOptions({ breaks: true, gfm: true });
+// html for the YouTube embeds, breaks so a single newline is a line break, linkify so a bare URL is a link.
+// Math and figures come from markdown-it-latex-plus: CLAUDE.md lists the syntax.
+const mdit = MarkdownIt({ html: true, breaks: true, linkify: true }).use(latexPlus);
 
 const getUnlistedSlugs = async () => {
   try {
@@ -92,7 +93,7 @@ const run = async () => {
       markdown: md,
       isUnlisted: unlisted.has(data.slug),
       modified: lastCommit(path.dirname(file)),
-      html: fixInternalLinks(marked.parse(content))
+      html: fixInternalLinks(await mdit.latexPlus.render(content))
     });
   }
 
@@ -119,6 +120,8 @@ const run = async () => {
   }
 
   await writeDiscoveryFiles(listedArticles, AUTHOR_PAGES, issues);
+  // The stylesheet for the math and figures above, imported by src/styles.css
+  await fs.writeFile(path.join(SRC, "latex-plus.css"), mdit.latexPlus.css(), "utf8");
 
   console.log(`Generated ${articles.length} article pages (${listedArticles.length} listed) + home + write + privacy + newsletter (${issues.length} issues) + unsubscribe + author pages + 404 + rss/sitemap/robots.`);
 };

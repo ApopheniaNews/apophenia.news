@@ -12,27 +12,18 @@ if (ss && btn) {
   let blocks, voice, lit, cur;
   let at = 0, sent = 0, run = 0;
 
-  // Display math is read from its TeX source, so \frac{a}{b} comes out as "a divided by b"
-  const tex = (t) =>
-    t.replace(/\\text\{([^}]*)\}/g, "$1").replace(/_\{([^}]*)\}/g, " $1")
-      .replace(/\\frac\{([^}]*)\}\{([^}]*)\}/g, "$1 divided by $2")
-      .replace(/\\approx/g, " is about ").replace(/\\times/g, " times ").replace(/=/g, " equals ").replace(/\//g, " divided by ")
-      .replace(/\\[a-z]+|[{}]/gi, " ");
-
-  const text = (el) => {
-    const c = el.cloneNode(true);
-    c.querySelectorAll(".katex").forEach((k) => k.replaceWith(` ${tex(k.querySelector("annotation")?.textContent || "")} `));
-    return (c.tagName == "TR" ? [...c.children].map((td) => td.textContent).join(", ") : c.textContent)
+  // Math is drawn as SVG with no text in it, so formulas are skipped
+  const text = (el) =>
+    (el.tagName == "TR" ? [...el.children].map((td) => td.textContent).join(", ") : el.textContent)
       .replace(/→/g, ", ").replace(/~(?=\d)/g, "about ").replace(/(\d)–(\d)/g, "$1 to $2")
       .replace(/\s+/g, " ").replace(/ ([,.])/g, "$1").trim();
-  };
 
   // Split on . ! ? followed by a space, so "0.05 mm" stays whole. Headings have no full stop, hence the |$
   const split = (t) => t.match(/.+?(?:[.!?…]+["'”’)\]]*(?=\s|$)|$)/g)?.map((s) => s.trim()).filter(Boolean) || [];
 
   // Innermost blocks only, so a list item holding a paragraph isn't read twice. Image-only paragraphs drop out empty.
   const pick = () => {
-    const all = [...document.querySelectorAll("[data-listen-title], .article-prose :is(h2,h3,h4,p,li,tr,.katex-display)")];
+    const all = [...document.querySelectorAll("[data-listen-title], .article-prose :is(h2,h3,h4,p,li,tr)")];
     return all.filter((el) => !all.some((o) => o != el && el.contains(o))).map((el) => ({ el, parts: split(text(el)) })).filter((b) => b.parts.length);
   };
 

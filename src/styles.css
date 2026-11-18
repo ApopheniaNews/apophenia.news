@@ -1,8 +1,8 @@
 @import "@fontsource/poppins/700.css";
 @import "@fontsource-variable/google-sans-flex";
 @import "tailwindcss" source(none);
-/* Layered so the components below still win over KaTeX, as they did before cascade layers */
-@import "katex/dist/katex.min.css" layer(base);
+/* Written by scripts/generate-pages.mjs. Layered so the components below still win over it */
+@import "./latex-plus.css" layer(base);
 @plugin "@tailwindcss/typography";
 @source "./**/*.{html,js}";
 
@@ -82,10 +82,6 @@
 
   .article-prose {
     @apply prose prose-zinc max-w-none prose-headings:text-zinc-900 prose-p:text-zinc-800 prose-li:text-zinc-800 prose-strong:text-zinc-900 prose-a:text-indigo-600 prose-a:hover:text-indigo-700 prose-img:rounded-xl prose-img:shadow-md;
-  }
-
-  .article-prose .katex-display {
-    @apply my-6 overflow-x-auto overflow-y-hidden py-2 text-center;
   }
 
   /* The block being read aloud by the Listen button (src/read-aloud.js) */

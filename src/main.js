@@ -24,6 +24,9 @@ if (copyArticleButton) {
   });
 }
 
+// Figures in an article (tikz, mermaid, dot...) arrive as their source and are drawn here, in the browser
+if (document.querySelector(".mlp-pending")) import("markdown-it-latex-plus").then((m) => m.hydrate());
+
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", bootIcons);
 } else {
