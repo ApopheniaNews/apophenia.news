@@ -160,7 +160,7 @@ ${shellHead({
 ${nav}
 <main class="shell py-10">
   <section class="card p-6 sm:p-10 text-center bg-linear-to-b from-white to-indigo-50/50">
-    <img src="https://vibegif.direct-img.link/detective/clue.webp" alt="Detective searching for clues with a magnifying glass" width="256" height="256" class="mx-auto h-48 w-48" />
+    <img src="https://vibegif.direct-img.link/404/ufo.webp" alt="A UFO beaming down the number 404" width="256" height="256" class="mx-auto h-48 w-48" />
     <p class="tag mt-6 mb-3"><i data-lucide="search" class="h-3.5 w-3.5"></i>404</p>
     <h1 class="text-4xl sm:text-5xl font-bold leading-tight sm:leading-none">No pattern here</h1>
     <p class="mt-4 text-zinc-700 max-w-xl mx-auto">This page doesn't exist or has moved. Even pattern seekers hit a dead end sometimes.</p>
