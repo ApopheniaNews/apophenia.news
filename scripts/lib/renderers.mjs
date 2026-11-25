@@ -425,7 +425,7 @@ tags:
 ${footer}
 `;
 
-// What the site records about readers. Keep it true: it describes GoatCounter and c (siteHead) and c's session recordings, Cloudflare's hosting and
+// What the site records about readers. Keep it true: it describes GoatCounter and c (siteHead), Cloudflare's hosting and
 // Web Analytics, the newsletter backend (newsletter.planetrenox.com) and what read-aloud.js saves in the browser
 export const renderPrivacyPage = () => `
 ${shellHead({
@@ -447,7 +447,7 @@ ${nav}
       <ul>
         <li>No ads and no cookies. Nothing is sold, or handed to anyone outside the services named on this page.</li>
         <li>We count visits and keep a log of them, IP addresses included, for 90 days.</li>
-        <li>We may record visits and replay them to see how readers use the site. Passwords are never recorded, and recordings are deleted within 30 days.</li>
+        <li>We may replay sessions to see how users interact with the site.</li>
         <li>If you subscribe to the newsletter we keep your email address until you ask us to delete it.</li>
       </ul>
 
@@ -458,11 +458,10 @@ ${nav}
         <li><strong>GoatCounter</strong>, a privacy-focused counting service. It uses your IP address to tell visits apart and to work out your country, and does not store it. See <a href="https://www.goatcounter.com/help/privacy" target="_blank" rel="noopener">GoatCounter's privacy policy</a>.</li>
         <li><strong>c</strong>, a small counter we run on our own server at c.apophenia.news. It keeps a log of visits with everything listed above for 90 days, then deletes it. If your browser blocks GoatCounter, c passes your visit on to GoatCounter, IP address included, so that it is still counted. An ad blocker therefore does not stop the count. The button below does.</li>
       </ul>
-      <p>We may also record visits with c and replay them, to see how readers use the site and where they get stuck. A recording shows how each page looked on your screen, how you scrolled, moved the mouse, tapped and clicked, and what you typed into forms, such as your email address on the newsletter page, keystroke by keystroke. Passwords are never recorded. With each recording c keeps the pages you opened and when, your browser, screen size, language, time zone, the page you came from and your IP address. Recordings stay on our server, only we watch them, and they are deleted after 30 days at most.</p>
       <p>The site is hosted by Cloudflare, which handles every request and so sees your IP address, as any host does. Cloudflare also shows us visit totals through Cloudflare Web Analytics, which uses no cookies. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's privacy policy</a>.</p>
 
       <h2>Stop counting my visits</h2>
-      <p>This turns off GoatCounter and c in this browser, recordings included. The choice is saved in the browser itself, so it has to be made again on another device, or after clearing this site's data.</p>
+      <p>This turns off GoatCounter and c in this browser. The choice is saved in the browser itself, so it has to be made again on another device, or after clearing this site's data.</p>
       <div class="not-prose" x-data="{ off: (() => { try { return localStorage.getItem('skipgc') == 't' } catch { return false } })() }">
         <button type="button" class="${toolBtn}" @click="off = !off; off ? localStorage.setItem('skipgc', 't') : localStorage.removeItem('skipgc')">
           <i data-lucide="eye-off" class="h-4 w-4"></i><span aria-live="polite" x-text="off ? 'Count my visits again' : 'Don’t count my visits'">Don’t count my visits</span>
@@ -481,8 +480,8 @@ ${nav}
       <p>The <a href="https://store.apophenia.news" target="_blank" rel="noopener">merch store</a> runs on a separate shop platform and our videos are on YouTube. Each has its own privacy policy, and what you do there is not covered here. If you email us, for example to send in an article, we keep your message.</p>
 
       <h2>Your data</h2>
-      <p>Write to <a href="mailto:apophenia@planetrenox.com">apophenia@planetrenox.com</a> to ask what we hold about you, or to have it deleted. For the visit log and recordings, tell us your IP address and roughly when you visited: that is all we can look them up by.</p>
-      <p>For the visit count, log and recordings we rely on our legitimate interest in knowing how the site is read and keeping it free of abuse, and for the newsletter on your consent. If you are in the EU or the UK you can also complain to your data protection authority.</p>
+      <p>Write to <a href="mailto:apophenia@planetrenox.com">apophenia@planetrenox.com</a> to ask what we hold about you, or to have it deleted. For the visit log, tell us your IP address and roughly when you visited: that is all we can look an entry up by.</p>
+      <p>For the visit count and log we rely on our legitimate interest in knowing how the site is read and keeping it free of abuse, and for the newsletter on your consent. If you are in the EU or the UK you can also complain to your data protection authority.</p>
       <p class="text-sm text-zinc-500">Last updated November 25, 2026.</p>
     </div>
   </article>
